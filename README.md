@@ -11,7 +11,7 @@
 
 Este proyecto será realizado  a lo largo del cuatrimestre junto con la asignatura de Diseño de Aplicaciones para Internet. Por lo tanto, desarrollaremos una aplicación web con un framework de alto nivel denominado Django(usado en la asignatura DAI),  donde podrán usarlo varios usuarios al mismo tiempo.
 
-** Organización de los miembros( gestión del trabajo) :**
+**Organización de los miembros( gestión del trabajo):**
 
 Dividiremos el proyecto en tres módulos, estos tres módulos tendrán cada uno su correspondiente subdirectorio accesibles desde un directorio principal[organización](https://github.com/lorenmanu/PROYECTO-IV):
 
