@@ -19,7 +19,7 @@ Dividiremos el proyecto en tres módulos, estos tres módulos tendrán cada uno 
 
 **El módulo 2:** [( Alberto Romero Cañadas )](https://github.com/sn1k/submodulo-Alberto):  Este módulo se dedicará del alojamiento de nuestro sistema web en el servidor, por lo que conectará la aplicación con las bases de datos y realizará el despliegue de la misma.
 
-**El módulo 3:** [( Lorenzo Manuel Rosas Rodríguez )](https://github.com/lorenmanu/submodulo-lorenzo): Este módulo implementará el sistema web, por lo que se encargará de la interfaz gráfica de la misma así como de la parte que lanzará peticiones de operaciones a la base de datos, estas peticiones será las que gestionará el balanceador(módulo 2).
+**El módulo 3:** [( Lorenzo Manuel Rosas Rodríguez )](https://github.com/lorenmanu/submodulo-lorenzo): Este módulo implementará el sistema web, por lo que se encargará de la interfaz gráfica de la misma así como de la parte que lanzará peticiones de operaciones a la base de datos.
 
 **NOTA: que el proyecto este dividido en varios módulos no quiere decir que los correspondientes miembros del grupo no colaboren conjuntamente en el proyecto( cada uno abarque todos los módulos), ya que el objetivo principal de esta asignatura es la virtualización de recursos así como el despliegue de una aplicación de manera automática, por lo que todos los módulos son importantes.
 
