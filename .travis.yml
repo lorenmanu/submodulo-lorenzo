@@ -3,8 +3,8 @@ python:
  - "2.7"
 # command to install dependencies
 install:
- - python pollaplication/setup.py install
- - pip install -r pollaplication/requirements.txt
+ - python aplicacion/pollaplication/setup.py install
+ - pip install -r aplicacion/pollaplication/requirements.txt
 # command to run tests
 script:
  - cd pollaplication
