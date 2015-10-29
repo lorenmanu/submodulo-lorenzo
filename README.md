@@ -10,10 +10,9 @@
 Yo he escogido los tests como forma para realizar los proyectos, ya que me permiten comprobar la su funcionalidad conforme los vaya desarrollando.
 
 Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
-![ejec_test]
 
 
-Mi archivo tests.py es: ![aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/aplicacion/pollaplication/polls/tests.py)
+Mi archivo tests.py está [aquí](aplicacion/pollaplication/polls/tests.py).
 
 Este fichero es inicial, ayudado del tutorial de django, la funcionalidad inicial básica que presenta esta pequeña aplicación se piensa mantener para nuestro proyecto, por eso lo he añadido como trabajo de mi proyecto.
 
