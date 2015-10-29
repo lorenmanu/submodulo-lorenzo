@@ -1,0 +1,11 @@
+language: python
+python:
+ - "3.4.3"
+# command to install dependencies
+install:
+ - python aplicacion/pollaplication/setup.py install
+ - pip install -r aplicacion/pollaplication/requirements.txt
+# command to run tests
+script:
+ - cd aplicacion/pollaplication
+ - python manage.py test
