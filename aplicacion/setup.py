@@ -1,11 +1,11 @@
 from setuptools import setup
 
-setup(name='pollaplication',
+setup(name='aplicacion',
 	version='0.1',
 	description='Web application about polls',
 	url='https://github.com/lorenmanu/submodulo-lorenzo',
 	author='Lorenzo Manuel Rosas Rodriguez',
-	author_email='acasadoquijada@gmail.com',
+	author_email='lorenrr1@gmail.com',
 	license='GNU GPL',
 	packages=['pollaplication'],
 	install_requires=['django','wheel'],
