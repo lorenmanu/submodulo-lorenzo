@@ -50,9 +50,13 @@ Y podemos ver la pregunta:
 ##Herramienta de construcción:
 Para este segundo apartado del hito he creado un Makefile, con las siguientes opciones:
 -clean: para borrar los archivos que se generan y no queremos. **make clean**
+
 -install: instalará todo lo necesario para ejecutar la aplicación. **make install**
+
 -test: que nos testeará la aplicación. **make test**
+
 -run: nos ejecutará la aplicación. **make run**
+
 -doc: nos generará la documentación. **make doc**
 
 ###Tests
