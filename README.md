@@ -49,6 +49,7 @@ Y podemos ver la pregunta:
 
 ##Herramienta de construcción:
 Para este segundo apartado del hito he creado un Makefile, con las siguientes opciones:
+
 -clean: para borrar los archivos que se generan y no queremos. **make clean**
 
 -install: instalará todo lo necesario para ejecutar la aplicación. **make install**
@@ -121,4 +122,3 @@ script:
 Una vez subido a github, e indicado travis que trabaje con repositorio correspondiente debe salir esto:
 
 ![travis](https://www.dropbox.com/s/uoyn00dq4dw8vph/img23.png?dl=1)
-![admin](http://i1045.photobucket.com/albums/b460/Alejandro_Casado/pollaplication/admin_zps4vvtzbcr.png)
