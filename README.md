@@ -100,7 +100,7 @@ Este fichero es inicial, ayudado del tutorial de django, la funcionalidad inicia
 Para la integración contínua elegí [travis](https://travis-ci.org/) ya que es fácil de usar y entender( es similar a Shippable, también lo he probado).
 
 En este apartado he creado un fichero llamado [setup.py](aplicacion/setup.py) y un fichero **.travis.ym**(donde estarán los tests y el cual está en el directorio raíz).
-Fichero ![travis.yml](/):
+Fichero [travis.yml](/):
 
 ~~~
 language: python
