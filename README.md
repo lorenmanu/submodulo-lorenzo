@@ -59,6 +59,28 @@ Para este segundo apartado del hito he creado un Makefile, con las siguientes op
 
 -doc: nos generará la documentación. **make doc**
 
+Mi mafefile es [este](/aplicacion/pollaplication/Makefile):
+
+~~~
+#Makefile FJGM segundo hito 
+#clean install test run doc
+
+clean:
+	- rm -rf *~*
+	- find . -name '*.pyc' -exec rm {} \;
+
+install: 
+	python setup.py install
+	
+test: 
+	python manage.py test
+	
+run:
+	python manage.py runserver
+doc:
+	epydoc --html polls/*.py 
+~~~
+
 ###Tests
 
 Yo he escogido los tests como forma para realizar los proyectos, ya que me permiten comprobar la su funcionalidad conforme los vaya desarrollando.
