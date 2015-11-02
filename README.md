@@ -99,7 +99,7 @@ Este fichero es inicial, ayudado del tutorial de django, la funcionalidad inicia
 
 Para la integración contínua elegí [travis](https://travis-ci.org/) ya que es fácil de usar y entender( es similar a Shippable, también lo he probado).
 
-En este apartado he creado un fichero llamado [setup.py](aplicacion/setup.py) y un fichero **.travis.ym**(donde estarán los tests y el cual está en el directorio raíz).
+En este apartado he creado un fichero llamado [setup.py](aplicacion/setup.py) y un fichero **.travis.ym**(el cual está en el directorio raíz).
 Fichero [.travis.yml](/aplicacion/.travis.yml):
 
 ~~~
@@ -119,7 +119,9 @@ script:
 
 Una vez creado estos dos archivos, con el Makefile y test.py también( de los apartados anteriores), he realizado los siguientes pasos:
 
-- Registrarse en la página de travis e indicar el repositorio que queremos que compruebe.
-- En nuestro repositorio de github, en el apartado **Setting/Webhooks&services** tenemos que activar el apartado de **Travis** y  pulsar **Test Service** para que inicie el test. Saldrá algo así:
+- Registrarme en la página de travis e indicar el repositorio que queremos que compruebe.
+- En nuestro repositorio de github, en el apartado **Setting/Webhooks&services** tenemos que activar el apartado de **Travis** y  pulsar **Test Service** para que inicie el test.
+
+Saldrá algo así:
 
 ![travis](https://www.dropbox.com/s/uoyn00dq4dw8vph/img23.png?dl=1)
