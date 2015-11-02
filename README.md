@@ -18,11 +18,11 @@ La plataforma albergará un foro donde poder opinar sobre las diferentes transac
 
 # Encuestas sitio web:
 
-Es una aplicación que nos permite crear y votar encuestas. Para realizarla hemos seguido un tutorial el tutorial de [Django](https://docs.djangoproject.com/en/1.8/intro/tutorial01/) , y la hemos usado para avanzar en la asignatura de Infraestructura Virtual y Desarrollo de Aplicaciónes de Internet.
+Es una aplicación que nos permite crear y votar encuestas. Para realizarla hemos seguido el tutorial de [Django](https://docs.djangoproject.com/en/1.8/intro/tutorial01/) , y la hemos usado para avanzar en la asignatura de Infraestructura Virtual y Desarrollo de Aplicaciónes de Internet.
 
 ##Uso
 
-Una vez descargada la aplicación, para ejecutarla nos tenemos que dirigir a **submodulo-lorenzo-master/aplicacion/pollaplication/** y poner en la terminal **python manage.py runserver**:
+Una vez descargada la aplicación, para ejecutarla tenemos que dirigir a **submodulo-lorenzo-master/aplicacion/pollaplication/** y poner en la terminal **python manage.py runserver**:
 
 ![ejecucion](https://www.dropbox.com/s/oy66c3w7cxtxctm/img1.png?dl=1)
 
@@ -84,7 +84,7 @@ doc:
 
 ###Tests
 
-Yo he escogido los tests como forma para realizar los proyectos, ya que me permiten comprobar la su funcionalidad conforme los vaya desarrollando.
+Yo he escogido los tests como forma para realizar los proyectos, ya que me permiten comprobar la funcionalidad de los mismos conforme los vaya desarrollando.
 
 Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
 
@@ -99,12 +99,8 @@ Este fichero es inicial, ayudado del tutorial de django, la funcionalidad inicia
 
 Para la integración contínua elegí [travis](https://travis-ci.org/) ya que es fácil de usar y entender( es similar a Shippable, también lo he probado).
 
-Para poder usar travis:
-
--He creado un fichero llamado [setup.py](aplicacion/setup.py)
-
-También he creado un fichero **.travis.ym**, el cual está en el directorio raíz.
-Fichero travis.yml:
+En este apartado he creado un fichero llamado [setup.py](aplicacion/setup.py) y un fichero **.travis.ym**(donde estarán los tests y el cual está en el directorio raíz).
+Fichero ![travis.yml](/):
 
 ~~~
 language: python
