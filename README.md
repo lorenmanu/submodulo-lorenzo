@@ -16,6 +16,8 @@ La plataforma albergará un foro donde poder opinar sobre las diferentes transac
 
 ##Segundo hito
 
+[![Build Status](https://travis-ci.org/lorenmanu/submodulo-lorenzo.svg?branch=master)](https://travis-ci.org/lorenmanu/submodulo-lorenzo)
+
 # Encuestas sitio web:
 
 Es una aplicación que nos permite crear y votar encuestas. Para realizarla hemos seguido el tutorial de [Django](https://docs.djangoproject.com/en/1.8/intro/tutorial01/) , y la hemos usado para avanzar en la asignatura de Infraestructura Virtual y Desarrollo de Aplicaciónes de Internet.
