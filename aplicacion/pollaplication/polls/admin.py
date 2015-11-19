@@ -11,7 +11,6 @@ class QuestionAdmin(admin.ModelAdmin):
 	(None,               {'fields': ['question_text']}),
 	('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
 	]
-	list_filter = ['pub_date']
 	search_fields = ['question_text']
 
 
