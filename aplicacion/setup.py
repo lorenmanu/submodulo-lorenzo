@@ -11,3 +11,5 @@ setup(name='pollaplication',
 	packages=['pollaplication'],
 	install_requires=['django','wheel'],
 	zip_safe=False)
+
+
