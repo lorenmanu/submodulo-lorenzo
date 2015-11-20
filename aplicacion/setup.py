@@ -4,7 +4,7 @@ from setuptools import setup
 setup(name='pollaplication',
 	version='0.1',
 	description='Web application about polls',
-	url='https://github.com/lorenmanu/submodulo-lorenzo',
+	url='https://github.com/lorenmanu/submodulo-lorenzo/aplicacion',
 	author='Lorenzo Manuel Rosas Rodriguez',
 	author_email='lorenrr1@gmail.com',
 	license='GNU GPL',
