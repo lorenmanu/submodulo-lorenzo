@@ -91,7 +91,7 @@ Yo he escogido los tests como forma para realizar los proyectos, ya que me permi
 Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
 
 
-Mi archivo tests.py está [aquí](aplicacion/pollaplication/polls/tests.py). Ejemplo de ejecución:
+Mi archivo tests.py está [aquí](aplicacion/polls/tests.py). Ejemplo de ejecución:
 
 ![visualizacion](https://www.dropbox.com/s/ehluh1awb1kiijn/img10.png?dl=1)
 

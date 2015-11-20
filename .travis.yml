@@ -7,5 +7,5 @@ install:
  - pip install -r aplicacion/requirements.txt
 # command to run tests
 script:
- - cd aplicacion/pollaplication
+ - cd aplicacion/
  - python manage.py test
