@@ -91,8 +91,7 @@ Yo he escogido los tests como forma para realizar los proyectos, ya que me permi
 Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
 
 
-Mi archivo tests.py está [aquí](aplicacion/polls/tests.py). Ejemplo de ejecución:
-
+Mi archivo tests.py está [aquí](aplicacion/polls/tests.py). Ejemplo de ejecucp
 ![visualizacion](https://www.dropbox.com/s/ehluh1awb1kiijn/img10.png?dl=1)
 
 Este fichero es inicial, ayudado del tutorial de django, la funcionalidad inicial básica que presenta esta pequeña aplicación se piensa mantener para nuestro proyecto, por eso lo he añadido como trabajo de mi proyecto.
@@ -112,7 +111,7 @@ python:
 install:
  - python aplicacion/setup.py install
  - pip install -r aplicacion/requirements.txt
-# command to run tests
+# command to run tests4
 script:
  - cd aplicacion/pollaplication
  - python manage.py test
@@ -127,3 +126,113 @@ Una vez creado estos dos archivos, con el Makefile y test.py también( de los ap
 Saldrá algo así:
 
 ![travis](https://www.dropbox.com/s/uoyn00dq4dw8vph/img23.png?dl=1)
+
+## Despliegue en un Paas
+Esta práctica consistía en desplegar nuestra aplicación en un Paas. He decidido usar Heroku, por su facilidad en el uso y porque es el que he usado durante la realización de los ejercicios. También cabe destacar que es gratuito y permite usar el lenguage python y Framework Django, el cual usa nuestra aplicación).Para su despliegue he necesitado modificar o crear los siguientes ficheros:
+
+- Procfile, el cual indica a heroku que tiene que lanzar:
+```
+web: gunicorn pollaplication.wsgi --log-file -
+
+```
+- requirements.txt: usado para especificar todo lo necesario para nuestra aplicación vaya, en mi caso es:
+```
+Django==1.8.6
+argparse==1.2.1
+dj-database-url==0.3.0
+dj-static==0.0.6
+django-toolbelt==0.0.1
+djangorestframework==3.3.1
+foreman==0.9.7
+futures==3.0.3
+gunicorn==19.3.0
+psycopg2==2.6.1
+requests==2.8.1
+requests-futures==0.9.5
+static3==0.6.1
+wheel==0.26.0
+whitenoise==2.0.4
+wsgiref==0.1.2
+
+```
+Despues de esto nos registramos en Heroku. Una vez registrados tendríamos que ejecutar una serie de comandos que ahora se especifican, para lanzar nuestra aplicación en heroku:
+```
+wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
+heroku login
+heroku create
+git add .
+git commit -m "subida"
+heroku apps:rename apuestas
+git push heroku master
+
+```
+La base de datos que voy a usar en Heroku es **PostgreSQL**. Para ello:
+
+- Tengo *psycopg2* para poder usarla.
+- También tengo *dj_database_url*, tambien necesario para PostgreSQL.
+- Edité el archivo *setting.py* del proyecto y añadí lo siguiente( sacado del siguiente [enlace](http://stackoverflow.com/questions/26080303/improperlyconfigured-settings-databases-is-improperly-configured-please-supply):
+```
+
+import dj_database_url
+
+...
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+ALLOWED_HOSTS = ['*']
+ON_HEROKU = os.environ.get('PORT')
+if ON_HEROKU:
+    DATABASE_URL='postgres://uhaxlowwnbgqrv:3decYI2il-srwwKVSDV6a4G-xQ@ec2-54-83-36-203.compute-1.amazonaws.com:5432/da2k9559f8odld'
+    DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+.....
+
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
+```
+
+- En **wsgi.py** puse lo siguiente:
+```
+import os
+
+from django.core.wsgi import get_wsgi_application
+from dj_static import Cling
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "apuestas.settings")
+
+#from whitenoise.django import DjangoWhiteNoise
+application = get_wsgi_application()
+
+
+application = Cling(get_wsgi_application())
+#application = DjangoWhiteNoise(application)
+```
+- Destacar que en DATABASE_URL se indica la url que sale para la base de datos postgreSQL que Heroku nos ofrece, hay que darle a show para verlo.
+- Subí cambios a github y hacer **git push heroku master**.
+- Ejecutar los comando **heroku run python manage.py makemigrations**, **heroku run python manage.py migrate** y **heroku run python manage.py createsuperuser** para sincronizar la base de datos PostgreSQL.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
