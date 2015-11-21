@@ -62,7 +62,7 @@ Para este segundo apartado del hito he creado un Makefile, con las siguientes op
 
 - doc: nos generará la documentación. **make doc**
 
-Mi mafefile es [este](/aplicacion/pollaplication/Makefile):
+Mi mafefile es [este](Makefile):
 
 ~~~
 #Makefile FJGM segundo hito 
@@ -91,7 +91,7 @@ Yo he escogido los tests como forma para realizar los proyectos, ya que me permi
 Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
 
 
-Mi archivo tests.py está [aquí](aplicacion/polls/tests.py). Ejemplo de ejecucp
+Mi archivo tests.py está [aquí](polls/tests.py). Ejemplo de ejecucp
 ![visualizacion](https://www.dropbox.com/s/ehluh1awb1kiijn/img10.png?dl=1)
 
 Este fichero es inicial, ayudado del tutorial de django, la funcionalidad inicial básica que presenta esta pequeña aplicación se piensa mantener para nuestro proyecto, por eso lo he añadido como trabajo de mi proyecto.
@@ -100,8 +100,8 @@ Este fichero es inicial, ayudado del tutorial de django, la funcionalidad inicia
 
 Para la integración contínua elegí [travis](https://travis-ci.org/) ya que es fácil de usar y entender( es similar a Shippable, también lo he probado).
 
-En este apartado he creado un fichero llamado [setup.py](aplicacion/setup.py) y un fichero **.travis.ym**(el cual está en el directorio raíz).
-Fichero [.travis.yml](/aplicacion/.travis.yml):
+En este apartado he creado un fichero llamado [setup.py](setup.py) y un fichero **.travis.ym**(el cual está en el directorio raíz).
+Fichero [.travis.yml](.travis.yml):
 
 ~~~
 language: python
