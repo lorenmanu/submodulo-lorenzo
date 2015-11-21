@@ -8,7 +8,7 @@ setup(name='pollaplication',
 	author='Lorenzo Manuel Rosas Rodriguez',
 	author_email='lorenrr1@gmail.com',
 	license='GNU GPL',
-	packages=['aplicacion'],
+	packages=['pollaplication'],
 	install_requires=['django','wheel'],
 	zip_safe=False)
 
