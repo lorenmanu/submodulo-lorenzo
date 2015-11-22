@@ -223,6 +223,7 @@ application = Cling(get_wsgi_application())
 - Subí cambios a github y hacer **git push heroku master**.
 - Ejecutar los comando **heroku run python manage.py makemigrations**, **heroku run python manage.py migrate** y **heroku run python manage.py createsuperuser** para sincronizar la base de datos PostgreSQL.
  
+- Se añade el proceso de integración continua con snap-ci, para ello:
 
 - Me he registrado en [https://snap-ci.com](https://snap-ci.com) y lo he conectado a mi repositorio:
 
@@ -241,6 +242,9 @@ application = Cling(get_wsgi_application())
 ![img13](https://www.dropbox.com/s/le7jab6le355ynu/img13.png?dl=1)
 
 
+Con lo último(snap-ci), he realizado la integración continua de mi aplicación, cada vez que haga un push se pasarán los test y se desplegará mi aplicación.
+
+-  Nota: **AVANCES**: la utilización de JSON con sus tests. Puede verse en el archivo **views.py**, su llamada en los **tests.py** y el archivo **serializers.py**.
 
 
 
