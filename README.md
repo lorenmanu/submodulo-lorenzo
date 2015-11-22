@@ -222,8 +222,10 @@ application = Cling(get_wsgi_application())
 - Destacar que en DATABASE_URL se indica la url que sale para la base de datos postgreSQL que Heroku nos ofrece, hay que darle a show para verlo.
 - Subí cambios a github y hacer **git push heroku master**.
 - Ejecutar los comando **heroku run python manage.py makemigrations**, **heroku run python manage.py migrate** y **heroku run python manage.py createsuperuser** para sincronizar la base de datos PostgreSQL.
- 
-- Se añade el proceso de integración continua con snap-ci, para ello:
+
+Aplicación [desplegada](https://whispering-dawn-2435.herokuapp.com/).
+
+Se añade el proceso de integración continua con snap-ci, para ello:
 
 - Me he registrado en [https://snap-ci.com](https://snap-ci.com) y lo he conectado a mi repositorio:
 
