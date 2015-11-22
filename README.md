@@ -224,8 +224,25 @@ application = Cling(get_wsgi_application())
 - Ejecutar los comando **heroku run python manage.py makemigrations**, **heroku run python manage.py migrate** y **heroku run python manage.py createsuperuser** para sincronizar la base de datos PostgreSQL.
  
 
+- Me he registrado en [https://snap-ci.com](https://snap-ci.com) y lo he conectado a mi repositorio:
 
+![img10](img10)
 
+- Compruebo que el repositorio esta conectado con **Github** y que tiene el despliegue automático ( consultar pestaña Deploy ).
+
+![img11](img11)
+
+- Realizo un push al repositorio y compruebo que realiza el testeo antes de desplegarlo.
+
+![img12](img12)
+
+- Cojo la etiqueta markdown de **Snap-ci** (pestaña Norificaciones).
+
+![img13](img13)
+
+###Ejercicio 8: Preparar la aplicación con la que se ha venido trabajando hasta este momento para ejecutarse en un PaaS, el que se haya elegido.
+
+Lo llevo realizando en todos los ejercicios, consultar mi [submodulo](https://github.com/lorenmanu/submodulo-lorenzo).
 
 
 
