@@ -240,9 +240,6 @@ application = Cling(get_wsgi_application())
 
 ![img13](https://www.dropbox.com/s/le7jab6le355ynu/img13.png?dl=1)
 
-###Ejercicio 8: Preparar la aplicación con la que se ha venido trabajando hasta este momento para ejecutarse en un PaaS, el que se haya elegido.
-
-Lo llevo realizando en todos los ejercicios, consultar mi [submodulo](https://github.com/lorenmanu/submodulo-lorenzo).
 
 
 
