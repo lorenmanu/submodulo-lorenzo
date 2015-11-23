@@ -5,13 +5,13 @@
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://iv-dai.herokuapp.com/)
 
 
-## **Proyecto de IV(infraestructura Virtual junto con DAI(DESARROLO DE APLICACIONES DE INTERNET** ##
+## **Proyecto de IV(infraestructura Virtual) junto con DAI(DESARROLLO DE APLICACIONES DE INTERNET** ##
 
 ###Breve Descripción/Introducción:
 
-El proyecto consiste en una plataforma de compra/venta de productos on-line. La plataforma contiene varias secciones para la venta de todo tipo de productos. La plataforma consiste en una página web donde cualquiera podra ver los productos que se venden, pero para poder vender o comprar será necesario registro. Si el vendedor se encuentra conectado, cualquier comprador potencial podrá chatear con el para preguntarle sobre el productos.
+El proyecto consiste en una plataforma de compra/venta de productos on-line. La plataforma contiene varias secciones para la venta de todo tipo de productos. La plataforma consiste en una página web donde cualquiera podrá ver los productos que se venden, pero para poder vender o comprar será necesario registro. Si el vendedor se encuentra conectado, cualquier comprador potencial podrá chatear con el para preguntarle sobre el productos.
 
-Cada anuncio vendra acompañado de una foto y una descripcion del producto que se ajuste a la realidad. Cada producto deberá estar bien situado en su sección correspondiente.
+Cada anuncio vendrá acompañado de una foto y una descripción del producto que se ajuste a la realidad. Cada producto deberá estar bien situado en su sección correspondiente.
 
 Cada usuario podrá tener una lista de productos favoritos.
 
@@ -21,11 +21,10 @@ La plataforma albergará un foro donde poder opinar sobre las diferentes transac
 
 **El módulo  Lorenzo Manuel Rosas Rodríguez**: Este módulo implementará el sistema web, por lo que se encargará de la interfaz gráfica de la misma así como de la parte que lanzará peticiones de operaciones a la base de datos. Para ello voy a usar Django, ya que es lo que vamos a usar también en la asignatura de Diseño de Aplicaciones de Internet.
 
-##Segundo hito
 
 # Encuestas sitio web:
 
-Es una aplicación que nos permite crear y votar encuestas. Para realizarla hemos seguido el tutorial de [Django](https://docs.djangoproject.com/en/1.8/intro/tutorial01/) , y la hemos usado para avanzar en la asignatura de Infraestructura Virtual y Desarrollo de Aplicaciónes de Internet.
+Es una aplicación que nos permite crear y votar encuestas. Para realizarla hemos seguido el tutorial de [Django](https://docs.djangoproject.com/en/1.8/intro/tutorial01/) , y la hemos usado para avanzar en la asignatura de Infraestructura Virtual y Desarrollo de Aplicaciones de Internet.
 
 ##Uso
 
@@ -96,14 +95,14 @@ Yo he escogido los tests como forma para realizar los proyectos, ya que me permi
 Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
 
 
-Mi archivo tests.py está [aquí](polls/tests.py). Ejemplo de ejecucp
+Mi archivo tests.py está [aquí](polls/tests.py). Ejemplo de ejecución:
 ![visualizacion](https://www.dropbox.com/s/ehluh1awb1kiijn/img10.png?dl=1)
 
 Este fichero es inicial, ayudado del tutorial de django, la funcionalidad inicial básica que presenta esta pequeña aplicación se piensa mantener para nuestro proyecto, por eso lo he añadido como trabajo de mi proyecto.
 
 ###Integración continua
 
-Para la integración contínua elegí [travis](https://travis-ci.org/) ya que es fácil de usar y entender( es similar a Shippable, también lo he probado).
+Para la integración continua elegí [travis](https://travis-ci.org/) ya que es fácil de usar y entender( es similar a Shippable, también lo he probado).
 
 En este apartado he creado un fichero llamado [setup.py](setup.py) y un fichero **.travis.ym**(el cual está en el directorio raíz).
 Fichero [.travis.yml](.travis.yml):
@@ -135,7 +134,7 @@ Saldrá algo así:
 
 
 ## Despliegue en un Paas
-Esta práctica consistía en desplegar nuestra aplicación en un Paas. He decidido usar Heroku, por su facilidad en el uso y porque es el que he usado durante la realización de los ejercicios. También cabe destacar que es gratuito y permite usar el lenguage python y Framework Django, el cual usa nuestra aplicación).Para su despliegue he necesitado modificar o crear los siguientes ficheros:
+Esta práctica consistía en desplegar nuestra aplicación en un Paas. He decidido usar Heroku, por su facilidad en el uso y porque es el que he usado durante la realización de los ejercicios. También cabe destacar que es gratuito y permite usar el lenguaje python y Framework Django, el cual usa nuestra aplicación).Para su despliegue he necesitado modificar o crear los siguientes ficheros:
 
 - Procfile, el cual indica a heroku que tiene que lanzar:
 ```
@@ -185,7 +184,7 @@ git push heroku master
 La base de datos que voy a usar en Heroku es **PostgreSQL**. Para ello:
 
 - Tengo *psycopg2* para poder usarla.
-- También tengo *dj_database_url*, tambien necesario para PostgreSQL.
+- También tengo *dj_database_url*, también necesario para PostgreSQL.
 - Edité el archivo *setting.py* del proyecto y añadí lo siguiente( sacado del siguiente [enlace](http://stackoverflow.com/questions/26080303/improperlyconfigured-settings-databases-is-improperly-configured-please-supply):
 ```
 
