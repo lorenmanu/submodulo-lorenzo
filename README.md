@@ -127,6 +127,8 @@ Saldrá algo así:
 
 ![travis](https://www.dropbox.com/s/uoyn00dq4dw8vph/img23.png?dl=1)
 
+
+
 ## Despliegue en un Paas
 Esta práctica consistía en desplegar nuestra aplicación en un Paas. He decidido usar Heroku, por su facilidad en el uso y porque es el que he usado durante la realización de los ejercicios. También cabe destacar que es gratuito y permite usar el lenguage python y Framework Django, el cual usa nuestra aplicación).Para su despliegue he necesitado modificar o crear los siguientes ficheros:
 
@@ -157,12 +159,21 @@ wsgiref==0.1.2
 ```
 Despues de esto nos registramos en Heroku. Una vez registrados tendríamos que ejecutar una serie de comandos que ahora se especifican, para lanzar nuestra aplicación en heroku:
 ```
+/* Descarga del toolbelt de heroku, este comando es para ubuntu, para OSX hay que descargarse el correspondiente ".dmg"*/
+
 wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
+
+/* Realiza login, antes deberemos registrarnos en heroku */
+
 heroku login
+
+/* Crea la aplicación */
+
 heroku create
+
+/* Añadimos los correspondientes cambios y los subimos a heroku */
 git add .
 git commit -m "subida"
-heroku apps:rename apuestas
 git push heroku master
 
 ```
@@ -223,7 +234,7 @@ application = Cling(get_wsgi_application())
 - Subí cambios a github y hacer **git push heroku master**.
 - Ejecutar los comando **heroku run python manage.py makemigrations**, **heroku run python manage.py migrate** y **heroku run python manage.py createsuperuser** para sincronizar la base de datos PostgreSQL.
 
-Aplicación [desplegada](https://whispering-dawn-2435.herokuapp.com/).
+Aplicación [desplegada](https://iv-dai.herokuapp.com/).
 
 Se añade el proceso de integración continua con snap-ci, para ello:
 
@@ -239,7 +250,7 @@ Se añade el proceso de integración continua con snap-ci, para ello:
 
 ![img12](https://www.dropbox.com/s/wk9p9es5ucn3dj5/img12.png?dl=1)
 
-- Cojo la etiqueta markdown de **Snap-ci** (pestaña Norificaciones).
+- Cojo la etiqueta markdown de **Snap-ci** (pestaña Notificaciones).
 
 ![img13](https://www.dropbox.com/s/le7jab6le355ynu/img13.png?dl=1)
 
