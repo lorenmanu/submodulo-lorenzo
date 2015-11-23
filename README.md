@@ -1,3 +1,10 @@
+[![Build Status](https://travis-ci.org/lorenmanu/submodulo-lorenzo.svg?branch=master)](https://travis-ci.org/lorenmanu/submodulo-lorenzo)
+
+[![Build Status](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master/build_image)](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master)
+
+[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://iv-dai.herokuapp.com/)
+
+
 ## **Proyecto de IV(infraestructura Virtual junto con DAI(DESARROLO DE APLICACIONES DE INTERNET** ##
 
 ###Breve Descripción/Introducción:
@@ -15,8 +22,6 @@ La plataforma albergará un foro donde poder opinar sobre las diferentes transac
 **El módulo  Lorenzo Manuel Rosas Rodríguez**: Este módulo implementará el sistema web, por lo que se encargará de la interfaz gráfica de la misma así como de la parte que lanzará peticiones de operaciones a la base de datos. Para ello voy a usar Django, ya que es lo que vamos a usar también en la asignatura de Diseño de Aplicaciones de Internet.
 
 ##Segundo hito
-
-[![Build Status](https://travis-ci.org/lorenmanu/submodulo-lorenzo.svg?branch=master)](https://travis-ci.org/lorenmanu/submodulo-lorenzo)
 
 # Encuestas sitio web:
 
