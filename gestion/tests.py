@@ -8,7 +8,7 @@ from .models import Question, Choice
 # Create your tests here.
 from rest_framework import status
 from rest_framework.test import APITestCase
-from polls.views import *
+from gestion.views import *
 
 class RutasTests(APITestCase):
 
