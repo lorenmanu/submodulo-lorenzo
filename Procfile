@@ -1,1 +1,1 @@
-web: gunicorn pollaplication.wsgi --log-file -
+web: gunicorn gestionapp.wsgi --log-file -
