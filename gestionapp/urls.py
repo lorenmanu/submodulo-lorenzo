@@ -20,6 +20,6 @@ urlpatterns = [
     url(r'^', include('polls.urls', namespace="polls")),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^preguntalist/$', 'polls.views.Pregunta_lista'),
-    url(r'^preguntadetail/(?P<pk>[0-9]+)/$', 'polls.views.Pregunta_detalle'),
+    url(r'^preguntalist/$', 'gestion.views.Pregunta_lista'),
+    url(r'^preguntadetail/(?P<pk>[0-9]+)/$', 'gestion.views.Pregunta_detalle'),
 ]
