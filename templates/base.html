@@ -6,20 +6,18 @@
         <title>{% block title %}{% endblock %}</title>
         <meta name="description" content="Combook es una biblioteca virtual hecha por qaysen">
         <meta name="viewport" content="width=device-width">
-        {% load staticfiles %}
-        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
-        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap-responsive.min.css" %}">
-        <link rel="stylesheet" href="{% static "bootstrap/css/css/my_stilos.css" %}">
-        <link rel="stylesheet" href="{% static "bootstrap/css/main.css" %}">
-        <link rel="stylesheet" href="{% static "bootstrap/css/inicio.css" %}">
-        <link rel="stylesheet" href="{% static "bootstrap/css/estilos_buscar.css" %}">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/my_stilos.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">        
+        <link rel="stylesheet" href="{{STATIC_URL}}css/estilos_buscar.css">
         <link href='http://fonts.googleapis.com/css?family=Advent+Pro:400,500' rel='stylesheet'>
-
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
    
     <body>
-
+        <p> {{ RUTA_PROYECTO }} </p>
    <div class="row-fluid">
             <div class="span12 s1">
                <img width='160px' height='120px' src="{{MEDIA_URL}}img/libros1.jpg" align="left">
