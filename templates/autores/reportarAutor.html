@@ -12,7 +12,7 @@
 			<li><b>Nombre</b> {{autor.nombre}} </li>
 			<li><b>Pais</b> {{autor.pais}} </li>
 			<li><b>Descripcion</b> {{autor.descripcion}} </li>
-			<li><b>Foto</b> <img src="{{MEDIA_URL}}{{autor.foto}}"></li>
+			<li><b>Foto</b> {{MEDIA_URL}}{{autor.foto}} <img src="{{MEDIA_URL}}{{autor.foto}}"></li>
 		{% endfor %}
 	</ul>
 
