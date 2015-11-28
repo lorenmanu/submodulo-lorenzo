@@ -65,9 +65,10 @@ MEDIA_URL = 'http://localhost:8000/media/'
 # Example: "/var/www/example.com/static/"
 import os
 ROOT_PATH = os.path.dirname(__file__)
+STATIC_ROOT = os.path.join(ROOT_PATH, 'estaticos')
 STATIC_URL = '/estaticos/'
 STATICFILES_DIRS = (
-    os.path.join(ROOT_PATH, 'estaticos'),
+    STATIC_ROOT,
 )
 
 # List of finder classes that know how to find static files in
