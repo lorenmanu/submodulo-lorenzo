@@ -28,7 +28,7 @@ Es una aplicación que nos permite crear y votar encuestas. Para realizarla hemo
 
 ##Uso
 
-Una vez descargada la aplicación, para ejecutarla tenemos que dirigir a **submodulo-lorenzo-master/aplicacion/pollaplication/** y poner en la terminal **python manage.py runserver**:
+Una vez descargada la aplicación, para ejecutarla tenemos que dirigir a **submodulo-lorenzo-master/aplicacion/gestionapp/** y poner en la terminal **python manage.py runserver**:
 
 ![ejecucion](https://www.dropbox.com/s/oy66c3w7cxtxctm/img1.png?dl=1)
 
@@ -85,7 +85,7 @@ test:
 run:
 	python manage.py runserver
 doc:
-	epydoc --html polls/*.py 
+	epydoc --html gestion/*.py 
 ~~~
 
 ###Tests
@@ -95,7 +95,7 @@ Yo he escogido los tests como forma para realizar los proyectos, ya que me permi
 Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
 
 
-Mi archivo tests.py está [aquí](polls/tests.py). Ejemplo de ejecución:
+Mi archivo tests.py está [aquí](gestion/tests.py). Ejemplo de ejecución:
 ![visualizacion](https://www.dropbox.com/s/ehluh1awb1kiijn/img10.png?dl=1)
 
 Este fichero es inicial, ayudado del tutorial de django, la funcionalidad inicial básica que presenta esta pequeña aplicación se piensa mantener para nuestro proyecto, por eso lo he añadido como trabajo de mi proyecto.
@@ -117,7 +117,7 @@ install:
  - pip install -r aplicacion/requirements.txt
 # command to run tests4
 script:
- - cd aplicacion/pollaplication
+ - cd aplicacion/gestionapp
  - python manage.py test
 ~~~
 
@@ -138,7 +138,7 @@ Esta práctica consistía en desplegar nuestra aplicación en un Paas. He decidi
 
 - Procfile, el cual indica a heroku que tiene que lanzar:
 ```
-web: gunicorn pollaplication.wsgi --log-file -
+web: gunicorn gestionapp.wsgi --log-file -
 
 ```
 - requirements.txt: usado para especificar todo lo necesario para nuestra aplicación vaya, en mi caso es:
