@@ -70,12 +70,13 @@ MEDIA_URL = 'http://localhost:8000/media/'
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 print BASE_DIR
 
 STATICFILES_DIRS = (
- os.path.join(BASE_DIR, 'static'),
+ os.path.join(BASE_DIR, 'stylesheets'),
 )
 
 # List of finder classes that know how to find static files in
