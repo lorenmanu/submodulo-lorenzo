@@ -63,11 +63,11 @@ MEDIA_URL = 'http://localhost:8000/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = RUTA_PROYECTO.child("estaticos")
+STATIC_ROOT = 'http://localhost:8000/media/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/estaticos/'
+STATIC_URL = 'http://localhost:8000/estaticos/'
 
 
 # Additional locations of static files
