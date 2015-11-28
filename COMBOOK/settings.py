@@ -68,7 +68,7 @@ ROOT_PATH = os.path.dirname(__file__)
 STATIC_ROOT = os.path.join(ROOT_PATH, 'estaticos')
 STATIC_URL = '/estaticos/'
 STATICFILES_DIRS = (
-    STATIC_ROOT = os.path.join(ROOT_PATH, 'estaticos'),
+    os.path.join(ROOT_PATH, 'estaticos'),
 )
 
 # List of finder classes that know how to find static files in
