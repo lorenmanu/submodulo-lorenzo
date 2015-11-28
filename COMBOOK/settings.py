@@ -71,7 +71,7 @@ MEDIA_URL = 'http://localhost:8000/media/'
 # Example: "http://example.com/static/", "http://static.example.com/"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 
 print BASE_DIR
 
