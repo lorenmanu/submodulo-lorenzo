@@ -3,3 +3,4 @@ from django.contrib.auth.forms import UserCreationForm
 
 class UserForm(UserCreationForm):
 	telefono = forms.IntegerField()
+	nombre = forms.CharField()
