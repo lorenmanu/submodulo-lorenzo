@@ -54,7 +54,7 @@ Y podemos ver la pregunta:
 ![visualizacion_de_la_pregunta](https://www.dropbox.com/s/4l4dam1976mq9zg/img6.png?dl=1)
 
 ##Herramienta de construcción:
-Para este segundo apartado del hito he creado un Makefile, con las siguientes opciones:
+Como herramienta de construcción yo he escogido un Makefile, con las siguientes opciones:
 
 - clean: para borrar los archivos que se generan y no queremos. **make clean**
 
@@ -95,7 +95,7 @@ Yo he escogido los tests como forma para realizar los proyectos, ya que me permi
 Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
 
 
-Mis archivo tests.py está [aquí](apss/autores/tests.py). Al avanzar la aplicación tengo otro en la página de [inicio](apss/inicio/tests.py). Cada app que hemos creado con **django-admi.py start app "nombre_app" tendrá su propio test.py, donde realizaremos operaciones con las aplicaciones respectivas. Ejemplo de ejecución:
+Mis archivo tests.py está [aquí](apps/autores/tests.py). Al avanzar la aplicación tengo otro en la página de [inicio](apps/inicio/tests.py). Cada app que hemos creado con **django-admi.py start app "nombre_app"** tendrá su propio test.py, donde realizaremos operaciones con las aplicaciones respectivas. Ejemplo de ejecución:
 ![visualizacion](https://www.dropbox.com/s/ehluh1awb1kiijn/img10.png?dl=1)
 
 La imagen anterior es del comienzo de desarrollo, es decir, cuando nuestra aplicación era más simple, ahora contamos con más operaciones ya que hemos aumentado considerablemente la funcionalidad de nuestra aplicación, como veremos más adelante.
@@ -141,9 +141,9 @@ Esta práctica consistía en desplegar nuestra aplicación en un Paas. He decidi
 web: gunicorn COMBOOK.wsgi --log-file -
 
 ```
-- [requirements.txt](requirements.txt): usado para especificar todo lo necesario para nuestra aplicación vaya. Se puede escribir en el indicando en la terminal **pip freeze > requirements.txt**, esta forma es la cual he realizado yo, pero da problemas con dependencias, los he resuelto introduciendo dichos problemas en internet, debido a su cantidad no los indicaré, durante esta semana yo y mis mienbros de grupo intentaremos resolverlo de mananera que al poner dicho comando en la terminal no nos de ningún problema.
+- [requirements.txt](requirements.txt): usado para especificar todo lo necesario para nuestra aplicación vaya. Se puede escribir en el indicando en la terminal **pip freeze > requirements.txt**, esta forma es la cual he realizado yo, pero da problemas con dependencias, los he resuelto introduciendo dichos problemas en internet, debido a su cantidad no los indicaré, durante esta semana yo y mis mienbros de grupo intentaremos resolverlo de manera que al poner dicho comando en la terminal no nos de ningún problema.
 
-Despues de esto nos registramos en Heroku. Una vez registrados tendríamos que ejecutar una serie de comandos que ahora se especifican, para lanzar nuestra aplicación en heroku:
+Después de esto nos registramos en Heroku. Una vez registrados tendríamos que ejecutar una serie de comandos que ahora se especifican, para lanzar nuestra aplicación en heroku:
 
 - Descargar del toolbelt de heroku, este comando es para ubuntu, para OSX hay que descargarse el correspondiente ".dmg"
 

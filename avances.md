@@ -4,8 +4,6 @@ Nuestros avances realizados con respecto a la práctica anterior han sido los si
 
 - Partiendo de la aplicación sencilla que nos daba el tutorial de django:
 
-![ejecucion](https://www.dropbox.com/s/oy66c3w7cxtxctm/img1.png?dl=1)
-
 ![cuestiones](https://www.dropbox.com/s/59ub4jgzz3gj20a/img2.png?dl=1)
 
 ![opciones](https://www.dropbox.com/s/al4a94ahj3ggo4k/img3.png?dl=1)
@@ -19,7 +17,7 @@ Nuestros avances realizados con respecto a la práctica anterior han sido los si
 
 Como se puede apreciar en la imagen, hay fotos que se ven y otras que no, no entendemos porque ya que se dirigen a las mismas rutas, investigaremos el error durante esta semana. Si lo ejecutamos de manera local ("localhost" con python manage.py runserver), este error no ocurre.
 
-- También hemos creado una pagina de inicio, la cual permite loguearse, registrarse y abrir y cerrar sesión.
+- También hemos creado una pagina de inicio, la cual permite loguearse, registrarse, y abrir y cerrar sesión.
 
 ![inicio](inicio)
 
@@ -27,7 +25,7 @@ Como se puede apreciar en la imagen, hay fotos que se ven y otras que no, no ent
 
 - También añadimos nuevas funcionalidades a nuestros test acorde a nuestro avance, en los cuales comprobamos la creación de uno y varios usuarios( en el caso de la app de [inicio](apps/inicio/tests.py)), y lo mismo con los [autores](apps/autores/tests.py). En el caso de la comprobación de varios elementos hacemos uso de la serialización, la cual hemos trabajado en los ejercicios del tema 3.
 
-- Hay otros elementos destacables, como puede ser el uso de Ajax, el cual lo especificaremos con mas detalle en el siguiente avanze, e intentaremos resolver el problema de las imágenes.
+- Hay otros elementos destacables, como puede ser el uso de Ajax, el cual lo especificaremos con mas detalle en el siguiente avance, e intentaremos resolver el problema de las imágenes.
 
 
 **Próximos objetivos**: crear la clase libros, en la cual un autor pueda tener muchos libros( relación uno a muchos), permitir añadir nuevos libros y mostrarlos, y resolver los problemas que hemos ido teniendo.
