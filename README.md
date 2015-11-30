@@ -237,7 +237,9 @@ Con respecto al último paso, que ha sido el de indicar que se quiere usar la ba
 
 - Siempre que introduzcamos nuevos modelos en los archivos **models.py** o introduzcamos nuevos datos, deberemos escribir los siguientes comandos en la terminal: **heroku run python manage.py makemigrations**, **heroku run python manage.py migrate** y **heroku run python manage.py createsuperuser**. De esta manera se sincronizará la base de datos PostgreSQL de heroku. En versiones anteriores de django se permitía realizar los pasos anteriores con **python manage.py syncdb**, en las nuevas se permite, pero el mismo django te recomienda al usar el último comando que no lo uses.
 
-Aplicación [desplegada](https://iv-dai.herokuapp.com/).
+Aplicación [desplegada](https://combook.herokuapp.com/).
+
+Hemos añadido un archivo **.sh** para realizar el despligue de la aplicacion, puede verse [aquí](despligue.sh). Para realizarlo nos hemos servido del siguiente [enlace](https://github.com/iblancasa/BackendSI2-IV/wiki/DespliegueHeroku), el cual nos conducía a otros enlaces de heroku, los cuales hemos usado para contrastar ideas.
 
 Se añade el proceso de integración continua con snap-ci, para ello:
 
