@@ -239,7 +239,7 @@ Con respecto al último paso, que ha sido el de indicar que se quiere usar la ba
 
 Aplicación [desplegada](https://combook.herokuapp.com/).
 
-Hemos añadido un archivo **.sh** para realizar el despligue de la aplicacion, puede verse [aquí](despligue.sh). Para realizarlo nos hemos servido del siguiente [enlace](https://github.com/iblancasa/BackendSI2-IV/wiki/DespliegueHeroku), el cual nos conducía a otros enlaces de heroku, los cuales hemos usado para contrastar ideas.
+Hemos añadido un archivo **.sh** para realizar el despligue de la aplicacion, puede verse [aquí](despliegue.sh). Para realizarlo nos hemos servido del siguiente [enlace](https://github.com/iblancasa/BackendSI2-IV/wiki/DespliegueHeroku), el cual nos conducía a otros enlaces de heroku, los cuales hemos usado para contrastar ideas.
 
 Se añade el proceso de integración continua con snap-ci, para ello:
 
