@@ -12,7 +12,7 @@ Nuestros avances realizados con respecto a la práctica anterior han sido los si
 ![ingresar_autor](https://www.dropbox.com/s/fva9yulfuo2e9cw/ingresar_autor.png?dl=1)
 ![mostrar_autores](https://www.dropbox.com/s/x4zqihjj34pz40w/mostrar_autores.png?dl=1)
 
-Como se puede apreciar en la imagen, hay fotos que se ven y otras que no, no entendemos porque ya que se dirigen a las mismas rutas, investigaremos el error durante esta semana. Si lo ejecutamos de manera local ("localhost" con python manage.py runserver), este error no ocurre.
+Como se puede apreciar en la imagen, hay fotos que se ven y otras que no, no entendemos por qué ya que se dirigen a las mismas rutas, investigaremos el error durante esta semana. Si lo ejecutamos de manera local ("localhost" con python manage.py runserver), este error no ocurre.
 
 - También hemos creado una pagina de inicio, la cual permite loguearse, registrarse, y abrir y cerrar sesión.
 
