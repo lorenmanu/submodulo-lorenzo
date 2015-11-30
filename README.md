@@ -264,7 +264,10 @@ Con lo último(snap-ci), he realizado la integración continua de mi aplicación
 
 
 -  Nota: **AVANCES**: se pueden ver en el [avances.md](avances.md).
-
+-  Nota: **ESTRUCTURA DEL PROYECTO**: nuestra aplicación sigue la estructura siguiente: 
+-  Carpeta **COMBOOK**: la cual será la carpeta proyecto de la aplicación. Tendrá un archivo con sus urls.py respectivas que nos dirigirán a las diferentes apps(presentes en las carpetas apps). Se crea con el comando **django-admin.py startproject COOMBOK**.
+-  Carpeta **APPS**: la cual contendrá las aplicaciones de nuestra aplicación. Se crea introduciendo en la terminal **django-admin.py startapp "nombre_app"**
+- La justificación de por qué hemos seguido esta estructura es la modularización, esto nos facilitará sobretodo la manera de trabajar y hará el código más entendible y sencillo. Además django nos afrece los comandos anteriormente dichos para tal objetivo.
 
 
 
