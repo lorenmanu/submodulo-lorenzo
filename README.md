@@ -2,7 +2,7 @@
 
 [![Build Status](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master/build_image)](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master)
 
-[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://iv-dai.herokuapp.com/)
+[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://combook.herokuapp.com/)
 
 
 ## **Proyecto de IV(infraestructura Virtual) junto con DAI(DESARROLLO DE APLICACIONES DE INTERNET** ##
@@ -260,7 +260,8 @@ Se añade el proceso de integración continua con snap-ci, para ello:
 
 Con lo último(snap-ci), he realizado la integración continua de mi aplicación, cada vez que haga un push se pasarán los test y se desplegará mi aplicación.
 
--  Nota: **AVANCES**: la utilización de JSON con sus tests. Puede verse en el archivo **views.py**, su llamada en los **tests.py** y el archivo **serializers.py**.
+
+-  Nota: **AVANCES**: se pueden ver en el [avances.md](avances.md).
 
 
 
