@@ -18,7 +18,7 @@ Como se puede apreciar en la imagen, hay fotos que se ven y otras que no, no ent
 
 ![inicio](https://www.dropbox.com/s/scay7hv89rga6ld/inicio.png?dl=1)
 
-- Hemos usado plantillas **bootstrap**, para saber su funcionamiento hemos consultado ![librosweb](https://librosweb.es/libro/bootstrap_3/), en la sección específica de bootstrap.
+- Hemos usado plantillas **bootstrap**, para saber su funcionamiento hemos consultado [librosweb](https://librosweb.es/libro/bootstrap_3/), en la sección específica de bootstrap.
 
 - También añadimos nuevas funcionalidades a nuestros test acorde a nuestro avance, en los cuales comprobamos la creación de uno y varios usuarios( en el caso de la app de [inicio](apps/inicio/tests.py)), y lo mismo con los [autores](apps/autores/tests.py). En el caso de la comprobación de varios elementos hacemos uso de la serialización, la cual hemos trabajado en los ejercicios del tema 3.
 
