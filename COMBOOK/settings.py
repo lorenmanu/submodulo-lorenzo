@@ -159,6 +159,7 @@ ON_HEROKU = os.environ.get('PORT')
 if ON_HEROKU:
     DATABASE_URL=' postgres://qcgsjyjlrxrbut:AB6HfA2cXIV74B8z_xKl-V88vI@ec2-107-21-219-109.compute-1.amazonaws.com:5432/df1bb3foip112r'
     DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+    PORT:'8000'
 
 
 DATABASES = {
