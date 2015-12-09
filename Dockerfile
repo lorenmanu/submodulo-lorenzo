@@ -21,9 +21,9 @@ RUN sudo pip install --upgrade pip
 
 #Instalar la app
 RUN ls
-RUN cd IV_javiergarridomellado/ && ls -l
-RUN cd IV_javiergarridomellado/ && cat requirements.txt
-RUN cd IV_javiergarridomellado/ && sudo pip install -r requirements.txt
+RUN cd submodulo-lorenzo/ && ls -l
+RUN cd submodulo-lorenzo/ && cat requirements.txt
+RUN cd submodulo-lorenzo/ && sudo pip install -r requirements.txt
 
 #Migraciones
 RUN cd submodulo-lorenzo/ && python manage.py syncdb --noinput
