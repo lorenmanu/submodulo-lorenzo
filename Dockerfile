@@ -23,7 +23,7 @@ RUN sudo pip install --upgrade pip
 RUN ls
 RUN cd submodulo-lorenzo/ && ls -l
 RUN cd submodulo-lorenzo/ && cat requirements.txt
-RUN cd submodulo-lorenzo/ && sudo pip install -r requirements.txt
+RUN cd submodulo-lorenzo/ && sudo pip install requirements.txt
 
 #Migraciones
 RUN cd submodulo-lorenzo/ && python manage.py syncdb --noinput
