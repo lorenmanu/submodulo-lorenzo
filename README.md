@@ -91,7 +91,9 @@ De entorno de pruebas he escogido docker, ya que lo he trabajado en la asignatur
 
 Mi imagen desplegada se puede ver [aquí](https://hub.docker.com/r/lorenmanu/submodulo-lorenzo/).
 
-Los pasos que he seguido para su creación se explican en el siguiente [archivo](docker.md)
+Los pasos que he seguido para su creación se explican en el siguiente [archivo](docker.md).
+
+También hemos creado un archivo para el despliegue en **docker.hub**, puede verse [aquí](despligue_docker.sh).
 
 
 
