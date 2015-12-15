@@ -70,7 +70,7 @@ Una vez regitrados en travis, indicado el repositorio que queremos que se utilic
 
 - [requirements.txt](requirements.txt): especifica todo lo que es necesario instalar.
 
-El siguiente paso es registrarse en Heroku. Una vez realizado el registro se tendría que ejecutar desde la máquina local una serie de comandos, los especificaremos en el siguiente archivo:
+El siguiente paso es registrarse en Heroku. Una vez realizado el registro se tendría que ejecutar desde la máquina local una serie de comandos, los especificaremos en el siguiente [archivo](heroku.md):
 
 
 Mi aplicación desplegada puede verse[aquí](https://MiTienda.herokuapp.com/).
