@@ -5,7 +5,7 @@
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://MiTienda.herokuapp.com/)
 
 
-## **Proyecto de IV(infraestructura Virtual) junto con DAI(DESARROLLO DE APLICACIONES DE INTERNET** ##
+## **Proyecto de IV(infraestructura Virtual) junto con DAI(DESARROLLO DE APLICACIONES DE INTERNET)** ##
 
 ###Breve Descripción/Introducción:
 
@@ -39,45 +39,25 @@ Mi mafefile es [este](Makefile):
 
 ###Tests
 
-Aquí usaré  los tests, cuya finalidad será comprobar la finalidad de mi aplicción conforme la vaya desarrollando, es decir, cada vez que hagamos un **git push** se comprobará si nuestra aplicación se ejecuta correctamente.
+Aquí usaré  los tests, cuya finalidad será comprobar la funcionalidad de mi aplicción conforme la vaya desarrollando, es decir, cada vez que hagamos un **git push** se comprobará si nuestra aplicación se ejecuta correctamente( esto último a sincronizarlo con travis, lo veremos depués).
 
-Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
+Al tener dos aplicaciones en mi proyecto, tendré dos test, uno para mi aplicación productos y otro para mi aplicación inicio:
 
+- Test para [productos](apps/productos/tests.py).
+- Test para [inicio](apps/inicio/tests.py).
 
-Mis archivo tests.py está [aquí](apps/productos/tests.py).
-
-![visualizacion](https://www.dropbox.com/s/ehluh1awb1kiijn/img10.png?dl=1)
-
-La imagen anterior es del comienzo de desarrollo, es decir, cuando nuestra aplicación era más simple, ahora contamos con más operaciones ya que hemos aumentado considerablemente la funcionalidad de nuestra aplicación, como veremos más adelante.
 
 ###Integración continua
 
-Para la integración continua elegí [travis](https://travis-ci.org/) ya que es fácil de usar y entender( es similar a Shippable, también lo he probado).
+Aquí he escogido [travis](https://travis-ci.org/). Como he dicho antes, cada vez que realice un **git push** se comprobará el correcto funcionamiento de mi aplicación. Los archivos creados para poder usar travis son:
+- [setup.py](setup.py).
+- [.travis.yml](.travis.yml).
 
-En este apartado he creado un fichero llamado [setup.py](setup.py) y un fichero **.travis.ym**(el cual está en el directorio raíz).
-Fichero [.travis.yml](.travis.yml):
-
-~~~
-language: python
-python:
- - "2.7.6"
-# command to install dependencies
-install:
- - python setup.py install
- - sudo pip install --upgrade pip
- - pip install -r requirements.txt
-# command to run tests
-script:
- - python manage.py test
-~~~
-
-
-Una vez creado estos dos archivos, con el Makefile y test.py también( de los apartados anteriores), he realizado los siguientes pasos:
 
 - Registrarme en la página de travis e indicar el repositorio que queremos que compruebe.
 - En nuestro repositorio de github, en el apartado **Setting/Webhooks&services** tenemos que activar el apartado de **Travis** y  pulsar **Test Service** para que inicie el test.
 
-Saldrá algo así:
+Una vez regitrados en travis, indicado el repositorio que queremos que se utilice y haber puesto en el apartado **Setting/Webhooks&services** que tenemos que activar el apartado de **Travis** y  pulsar **Test Service** para que inicie el test, nos saldrá algo como lo siguiente;
 
 ![travis](https://www.dropbox.com/s/uoyn00dq4dw8vph/img23.png?dl=1)
 
