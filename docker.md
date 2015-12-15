@@ -30,4 +30,4 @@ sudo docker run i -t lorenmanu/submodulo-lorenzo /bin/bash
 
 - Nos vamos al directorio de la app, obtenemos su dirección ip con el comando **ifconfig**, y finalmente la lanzaremos pa visualizarla en nuestro ordenador:
 
-|[img9](https://www.dropbox.com/s/h9vb2a8jvsz83qg/xexo.png?dl=1)
+![img9](https://www.dropbox.com/s/h9vb2a8jvsz83qg/xexo.png?dl=1)
