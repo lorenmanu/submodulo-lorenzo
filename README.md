@@ -85,7 +85,13 @@ Nota: **AVANCES**: se pueden ver en el [avances.md](avances.md).
 
 
 
+###Entorno de pruebas
 
+De entorno de pruebas he escogido docker, ya que lo he trabajado en la asignatura de Infraestructura Virtual. Nos dará la posibilidad de desplegar aplicaciones en contenedores en una máquina anfitriona determinada.
+
+Mi imagen desplegada se puede ver [aquí](https://hub.docker.com/r/lorenmanu/submodulo-lorenzo/).
+
+Los pasos que he seguido para su creación se explican en el siguiente [archivo]()
 
 
 
