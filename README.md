@@ -64,141 +64,25 @@ Una vez regitrados en travis, indicado el repositorio que queremos que se utilic
 
 
 ## Despliegue en un Paas
-Esta práctica consistía en desplegar nuestra aplicación en un Paas. He decidido usar Heroku, por su facilidad en el uso y porque es el que he usado durante la realización de los ejercicios. También cabe destacar que es gratuito y permite usar el lenguaje python y Framework Django, el cual usa nuestra aplicación).Para su despliegue he necesitado modificar o crear los siguientes ficheros:
+ Como Paas he usado Heroku, porque es el que he trabajo durante la realización de los ejercicios. Sobre sus características más reseñables destaco que es gratuito y permite usar el lenguaje python y Framework Django (el cual usa nuestra aplicación). Es necesario para realizar este apartado crear o modificar los siguientes archivos:
 
-- Procfile, el cual indica a heroku que tiene que lanzar:
-```
-web: gunicorn MiTienda.wsgi --log-file -
+- [Procfile](Profile): para indicar a heroku que tiene que lanzar.
 
-```
-- [requirements.txt](requirements.txt): usado para especificar todo lo necesario para nuestra aplicación vaya. Se puede escribir en el indicando en la terminal **pip freeze > requirements.txt**, esta forma es la cual he realizado yo, pero da problemas con dependencias, los he resuelto introduciendo dichos problemas en internet, debido a su cantidad no los indicaré, durante esta semana yo y mis mienbros de grupo intentaremos resolverlo de manera que al poner dicho comando en la terminal no nos de ningún problema.
+- [requirements.txt](requirements.txt): especifica todo lo que es necesario instalar.
 
-Después de esto nos registramos en Heroku. Una vez registrados tendríamos que ejecutar una serie de comandos que ahora se especifican, para lanzar nuestra aplicación en heroku:
-
-- Descargar del toolbelt de heroku, este comando es para ubuntu, para OSX hay que descargarse el correspondiente ".dmg"
-
-```
-
-wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
-
-```
-
-- Realizar login(con las datos respectivos que hemos introducido en el registro, el cual se realiza en la página oficial de heroku).
-
-```
-
-heroku login
-
-```
+El siguiente paso es registrarse en Heroku. Una vez realizado el registro se tendría que ejecutar desde la máquina local una serie de comandos, los especificaremos en el siguiente archivo:
 
 
-- Crear la aplicación:
-```
+Mi aplicación desplegada puede verse[aquí](https://MiTienda.herokuapp.com/).
 
-heroku create
+Además he añadido un archivo denominado para desplegar la aplicación, el cual es el [este](despliegue.sh).
+Si se tiene alguna duda sobre este archivo puede verse este [enlace](https://github.com/iblancasa/BackendSI2-IV/wiki/DespliegueHeroku).
 
-```
-
-- Una vez que realizados los cambios en nuestra aplicación, subirlos a heroku de la siguiente forma: 
-
-```
-
-git add .
-git commit -m "subida"
-git push heroku master
-
-```
-- Indicar que se quiere usar una base de datos( ya creada en heroku)**PostgreSQL**. Para ello, editar el archivo settings.py de nuestra aplicación e introducir:
-
-```
-
-import dj_database_url
-
-...
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-ALLOWED_HOSTS = ['*']
-ON_HEROKU = os.environ.get('PORT')
-if ON_HEROKU:
-    DATABASE_URL=' postgres://qcgsjyjlrxrbut:AB6HfA2cXIV74B8z_xKl-V88vI@ec2-107-21-219-109.compute-1.amazonaws.com:5432/df1bb3foip112r'
-    DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-...
-
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-
-```
-
-- En **wsgi.py** poner lo siguiente:
-```
-
-import os
-
-from django.core.wsgi import get_wsgi_application
-from dj_static import Cling
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "MiTienda.settings")
-
-#from whitenoise.django import DjangoWhiteNoise
-application = get_wsgi_application()
-
-
-application = Cling(get_wsgi_application())
-#application = DjangoWhiteNoise(application)
-
-```
-
-Con respecto al último paso, que ha sido el de indicar que se quiere usar la base de datos de heroku, cabe indicar las siguientes cosas:
-
-- En DATABASE_URL se indica la url de la base de datos postgreSQL de Heroku( que deberemos haber creado antes), hay que darle a show para verlo.
-
-- Siempre que introduzcamos nuevos modelos en los archivos **models.py** o introduzcamos nuevos datos, deberemos escribir los siguientes comandos en la terminal: **heroku run python manage.py makemigrations**, **heroku run python manage.py migrate** y **heroku run python manage.py createsuperuser**. De esta manera se sincronizará la base de datos PostgreSQL de heroku. En versiones anteriores de django se permitía realizar los pasos anteriores con **python manage.py syncdb**, en las nuevas se permite, pero el mismo django te recomienda al usar el último comando que no lo uses.
-
-Aplicación [desplegada](https://MiTienda.herokuapp.com/).
-
-Hemos añadido un archivo **.sh** para realizar el despligue de la aplicacion, puede verse [aquí](despliegue.sh). Para realizarlo nos hemos servido del siguiente [enlace](https://github.com/iblancasa/BackendSI2-IV/wiki/DespliegueHeroku), el cual nos conducía a otros enlaces de heroku, los cuales hemos usado para contrastar ideas.
-
-Se añade el proceso de integración continua con snap-ci, para ello:
-
-- Me he registrado en [https://snap-ci.com](https://snap-ci.com) y lo he conectado a mi repositorio:
-
-![img10](https://www.dropbox.com/s/ndp34yqpdffh5gy/img10.png?dl=1)
-
-- Compruebo que el repositorio esta conectado con **Github** y que tiene el despliegue automático ( consultar pestaña Deploy ).
-
-![img11](https://www.dropbox.com/s/dv7x5s2ujo8miwv/img11.png?dl=1)
-
-- Realizo un push al repositorio y compruebo que realiza el testeo antes de desplegarlo.
-
-![img12](https://www.dropbox.com/s/wk9p9es5ucn3dj5/img12.png?dl=1)
-
-- Cojo la etiqueta markdown de **Snap-ci** (pestaña Notificaciones).
-
-![img13](https://www.dropbox.com/s/le7jab6le355ynu/img13.png?dl=1)
-
-
-Con lo último(snap-ci), he realizado la integración continua de mi aplicación, cada vez que haga un push se pasarán los test y se desplegará mi aplicación.
+También he usado para la integración continua snap-ci. Así cada vez que realiza un **git push** se comprobará la correcta funcionalidad de mi aplicación pasando los tests y posteriormente se desplegará. La sincronización de mi repositorio con travis puede verse [aquí](snap-ci.md):
 
 
 Nota: **AVANCES**: se pueden ver en el [avances.md](avances.md).
 
-Nota: **ESTRUCTURA DEL PROYECTO**: nuestra aplicación sigue la estructura siguiente: 
--  Carpeta **MiTienda**: la cual será la carpeta proyecto de la aplicación. Tendrá un archivo con sus urls.py respectivas que nos dirigirán a las diferentes apps(presentes en las carpetas apps). Se crea con el comando **django-admin.py startproject COOMBOK**.
--  Carpeta **APPS**: la cual contendrá las aplicaciones de nuestra aplicación. Se crea introduciendo en la terminal **django-admin.py startapp "nombre_app"**
-- La justificación de por qué hemos seguido esta estructura es la modularización, esto nos facilitará sobretodo la manera de trabajar y hará el código más entendible y sencillo. Además django nos afrece los comandos anteriormente dichos para tal objetivo.
 
 
 
