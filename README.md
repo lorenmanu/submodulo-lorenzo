@@ -23,7 +23,7 @@ La plataforma albergará un foro donde poder opinar sobre las diferentes transac
 
 
 ##Herramienta de construcción:
-Como herramienta de construcción yo he escogido un Makefile, con las siguientes opciones:
+Yo he elegido en mi proyecto como herramienta de construcción usar Makefile, ya que lo he usado a lo largo de mi titulación. Además de ello porque nos permite avanzar en nuestro sin modificar este archivo. Tendré las siguientes opciones:
 
 - clean: para borrar los archivos que se generan y no queremos. **make clean**
 
@@ -37,34 +37,15 @@ Como herramienta de construcción yo he escogido un Makefile, con las siguientes
 
 Mi mafefile es [este](Makefile):
 
-~~~
-#Makefile FJGM segundo hito 
-#clean install test run doc
-
-clean:
-	- rm -rf *~*
-	- find . -name '*.pyc' -exec rm {} \;
-
-install: 
-	python setup.py install
-	
-test: 
-	python manage.py test
-	
-run:
-	python manage.py runserver
-doc:
-	epydoc --html MiTienda/*.py 
-~~~
-
 ###Tests
 
-Yo he escogido los tests como forma para realizar los proyectos, ya que me permiten comprobar la funcionalidad de los mismos conforme los vaya desarrollando.
+Aquí usaré  los tests, cuya finalidad será comprobar la finalidad de mi aplicción conforme la vaya desarrollando, es decir, cada vez que hagamos un **git push** se comprobará si nuestra aplicación se ejecuta correctamente.
 
 Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
 
 
-Mis archivo tests.py está [aquí](apps/productos/tests.py). Al avanzar la aplicación tengo otro en la página de [inicio](apps/inicio/tests.py). Cada app que hemos creado con **django-admi.py start app "nombre_app"** tendrá su propio test.py, donde realizaremos operaciones con las aplicaciones respectivas. Ejemplo de ejecución:
+Mis archivo tests.py está [aquí](apps/productos/tests.py).
+
 ![visualizacion](https://www.dropbox.com/s/ehluh1awb1kiijn/img10.png?dl=1)
 
 La imagen anterior es del comienzo de desarrollo, es decir, cuando nuestra aplicación era más simple, ahora contamos con más operaciones ya que hemos aumentado considerablemente la funcionalidad de nuestra aplicación, como veremos más adelante.
