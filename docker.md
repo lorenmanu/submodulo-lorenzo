@@ -1,4 +1,4 @@
-## **Como usar hub.docker.com ##
+## Como usar hub.docker.com ##
 
 Deberemos realizar los siguientes pasos para desplegar nuestra aplicación en docker-hub:
 - Registrarnos en [hub.docker.com](https://hub.docker.com/add/automated-build/github/orgs/?namespace=lorenmanu).
