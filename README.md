@@ -2,7 +2,7 @@
 
 [![Build Status](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master/build_image)](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master)
 
-[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://MiTienda.herokuapp.com/)
+[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://myclient.herokuapp.com/)
 
 
 ## **Proyecto de IV(infraestructura Virtual) junto con DAI(DESARROLLO DE APLICACIONES DE INTERNET)** ##
