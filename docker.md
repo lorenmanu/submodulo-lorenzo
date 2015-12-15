@@ -16,8 +16,10 @@ Para ejecutar la imagen en nuestra máquina anfitriona hay que realizar lo sigui
 ```
 docker pull lorenmanu/submodulo-lorenzo
 
-``
+```
+
 ![img7](https://www.dropbox.com/s/yl4i0e5ft3lmpld/img7.png?dl=1)
+
 - Para arrancar la imagen descargada en el paso anterior:
 
 ```
