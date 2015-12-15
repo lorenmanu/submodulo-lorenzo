@@ -1,1 +1,1 @@
-web: gunicorn COMBOOK.wsgi --log-file -
+web: gunicorn MiTienda.wsgi --log-file -

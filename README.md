@@ -2,7 +2,7 @@
 
 [![Build Status](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master/build_image)](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master)
 
-[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://combook.herokuapp.com/)
+[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://MiTienda.herokuapp.com/)
 
 
 ## **Proyecto de IV(infraestructura Virtual) junto con DAI(DESARROLLO DE APLICACIONES DE INTERNET** ##
@@ -21,37 +21,6 @@ La plataforma albergará un foro donde poder opinar sobre las diferentes transac
 
 **El módulo  Lorenzo Manuel Rosas Rodríguez**: Este módulo implementará el sistema web, por lo que se encargará de la interfaz gráfica de la misma así como de la parte que lanzará peticiones de operaciones a la base de datos. Para ello voy a usar Django, ya que es lo que vamos a usar también en la asignatura de Diseño de Aplicaciones de Internet.
 
-
-# Encuestas sitio web:
-
-Es una aplicación que nos permite crear y votar encuestas. Para realizarla hemos seguido el tutorial de [Django](https://docs.djangoproject.com/en/1.8/intro/tutorial01/) , y la hemos usado para avanzar en la asignatura de Infraestructura Virtual y Desarrollo de Aplicaciones de Internet.
-
-##Uso
-
-Una vez descargada la aplicación, para ejecutarla tenemos que dirigir a **submodulo-lorenzo-master/aplicacion/gestionapp/** y poner en la terminal **python manage.py runserver**:
-
-![ejecucion](https://www.dropbox.com/s/oy66c3w7cxtxctm/img1.png?dl=1)
-
-Para votar encuestas ponemos en nuestro navegador **http://127.0.0.1:8000** donde nos aparecerán todas las preguntas que hayamos creado( después diremos como las hemos creado):
-
-![cuestiones](https://www.dropbox.com/s/59ub4jgzz3gj20a/img2.png?dl=1)
-
-Seleccionamos una de las preguntas que aparecen:
-
-![opciones](https://www.dropbox.com/s/al4a94ahj3ggo4k/img3.png?dl=1)
-
-Tras esto, se almacenará nuestro voto:
-
-![resultados](https://www.dropbox.com/s/j5372jejykzz880/img4.png?dl=1)
-
-
-Para la creación de preguntas tenemos que jugar con la shell de python, tal y como se explica en el [tutorial](https://docs.djangoproject.com/en/1.8/intro/tutorial01/) ( en el apartado **Playing with the API**):
-
-![crear_pregunta](https://www.dropbox.com/s/6nd7qal8w45l3u2/img5.png?dl=1)
-
-Y podemos ver la pregunta:
-
-![visualizacion_de_la_pregunta](https://www.dropbox.com/s/4l4dam1976mq9zg/img6.png?dl=1)
 
 ##Herramienta de construcción:
 Como herramienta de construcción yo he escogido un Makefile, con las siguientes opciones:
@@ -85,7 +54,7 @@ test:
 run:
 	python manage.py runserver
 doc:
-	epydoc --html COMBOOK/*.py 
+	epydoc --html MiTienda/*.py 
 ~~~
 
 ###Tests
@@ -95,7 +64,7 @@ Yo he escogido los tests como forma para realizar los proyectos, ya que me permi
 Los test los he guardado en un archivo denominado **tests.py** , para ejecutarlos deberemos poner **python manage.y test**.
 
 
-Mis archivo tests.py está [aquí](apps/autores/tests.py). Al avanzar la aplicación tengo otro en la página de [inicio](apps/inicio/tests.py). Cada app que hemos creado con **django-admi.py start app "nombre_app"** tendrá su propio test.py, donde realizaremos operaciones con las aplicaciones respectivas. Ejemplo de ejecución:
+Mis archivo tests.py está [aquí](apps/productos/tests.py). Al avanzar la aplicación tengo otro en la página de [inicio](apps/inicio/tests.py). Cada app que hemos creado con **django-admi.py start app "nombre_app"** tendrá su propio test.py, donde realizaremos operaciones con las aplicaciones respectivas. Ejemplo de ejecución:
 ![visualizacion](https://www.dropbox.com/s/ehluh1awb1kiijn/img10.png?dl=1)
 
 La imagen anterior es del comienzo de desarrollo, es decir, cuando nuestra aplicación era más simple, ahora contamos con más operaciones ya que hemos aumentado considerablemente la funcionalidad de nuestra aplicación, como veremos más adelante.
@@ -138,7 +107,7 @@ Esta práctica consistía en desplegar nuestra aplicación en un Paas. He decidi
 
 - Procfile, el cual indica a heroku que tiene que lanzar:
 ```
-web: gunicorn COMBOOK.wsgi --log-file -
+web: gunicorn MiTienda.wsgi --log-file -
 
 ```
 - [requirements.txt](requirements.txt): usado para especificar todo lo necesario para nuestra aplicación vaya. Se puede escribir en el indicando en la terminal **pip freeze > requirements.txt**, esta forma es la cual he realizado yo, pero da problemas con dependencias, los he resuelto introduciendo dichos problemas en internet, debido a su cantidad no los indicaré, durante esta semana yo y mis mienbros de grupo intentaremos resolverlo de manera que al poner dicho comando en la terminal no nos de ningún problema.
@@ -220,7 +189,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 from dj_static import Cling
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "COMBOOK.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "MiTienda.settings")
 
 #from whitenoise.django import DjangoWhiteNoise
 application = get_wsgi_application()
@@ -237,7 +206,7 @@ Con respecto al último paso, que ha sido el de indicar que se quiere usar la ba
 
 - Siempre que introduzcamos nuevos modelos en los archivos **models.py** o introduzcamos nuevos datos, deberemos escribir los siguientes comandos en la terminal: **heroku run python manage.py makemigrations**, **heroku run python manage.py migrate** y **heroku run python manage.py createsuperuser**. De esta manera se sincronizará la base de datos PostgreSQL de heroku. En versiones anteriores de django se permitía realizar los pasos anteriores con **python manage.py syncdb**, en las nuevas se permite, pero el mismo django te recomienda al usar el último comando que no lo uses.
 
-Aplicación [desplegada](https://combook.herokuapp.com/).
+Aplicación [desplegada](https://MiTienda.herokuapp.com/).
 
 Hemos añadido un archivo **.sh** para realizar el despligue de la aplicacion, puede verse [aquí](despliegue.sh). Para realizarlo nos hemos servido del siguiente [enlace](https://github.com/iblancasa/BackendSI2-IV/wiki/DespliegueHeroku), el cual nos conducía a otros enlaces de heroku, los cuales hemos usado para contrastar ideas.
 
@@ -266,7 +235,7 @@ Con lo último(snap-ci), he realizado la integración continua de mi aplicación
 Nota: **AVANCES**: se pueden ver en el [avances.md](avances.md).
 
 Nota: **ESTRUCTURA DEL PROYECTO**: nuestra aplicación sigue la estructura siguiente: 
--  Carpeta **COMBOOK**: la cual será la carpeta proyecto de la aplicación. Tendrá un archivo con sus urls.py respectivas que nos dirigirán a las diferentes apps(presentes en las carpetas apps). Se crea con el comando **django-admin.py startproject COOMBOK**.
+-  Carpeta **MiTienda**: la cual será la carpeta proyecto de la aplicación. Tendrá un archivo con sus urls.py respectivas que nos dirigirán a las diferentes apps(presentes en las carpetas apps). Se crea con el comando **django-admin.py startproject COOMBOK**.
 -  Carpeta **APPS**: la cual contendrá las aplicaciones de nuestra aplicación. Se crea introduciendo en la terminal **django-admin.py startapp "nombre_app"**
 - La justificación de por qué hemos seguido esta estructura es la modularización, esto nos facilitará sobretodo la manera de trabajar y hará el código más entendible y sencillo. Además django nos afrece los comandos anteriormente dichos para tal objetivo.
 

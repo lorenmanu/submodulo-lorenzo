@@ -14,4 +14,4 @@ test:
 run:
 	python manage.py runserver
 doc:
-	epydoc --html COMBOOK/*.py 
+	epydoc --html MiTienda/*.py 
