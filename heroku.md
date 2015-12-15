@@ -4,7 +4,7 @@
 
 
 
-- Descargar del toolbelt de heroku, este comando es para ubuntu, para OSX hay que descargarse el correspondiente ".dmg"
+- Descargar del toolbelt de heroku:
 
 ```
 
@@ -12,7 +12,7 @@ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 ```
 
-- Realizar login(con las datos respectivos que hemos introducido en el registro, el cual se realiza en la página oficial de heroku).
+- Realizar login:
 
 ```
 
@@ -28,7 +28,7 @@ heroku create
 
 ```
 
-- Una vez que realizados los cambios en nuestra aplicación, subirlos a heroku de la siguiente forma: 
+- Subir los cambios que se realicen a heroku: 
 
 ```
 
@@ -37,7 +37,7 @@ git commit -m "subida"
 git push heroku master
 
 ```
-- Indicar que se quiere usar una base de datos( ya creada en heroku)**PostgreSQL**. Para ello, editar el archivo settings.py de nuestra aplicación e introducir:
+- Indicar que se quiere usar la base de datos que creemos en heroku( en mi caso **PostgreSQL**). Se tiene que añadir al archivo settings.py lo siguiente:
 
 ```
 
@@ -90,8 +90,14 @@ application = Cling(get_wsgi_application())
 
 ```
 
-Con respecto al último paso, que ha sido el de indicar que se quiere usar la base de datos de heroku, cabe indicar las siguientes cosas:
+Aclaraciones sobre la modificación del archivo **settings.py**:
 
 - En DATABASE_URL se indica la url de la base de datos postgreSQL de Heroku( que deberemos haber creado antes), hay que darle a show para verlo.
 
-- Siempre que introduzcamos nuevos modelos en los archivos **models.py** o introduzcamos nuevos datos, deberemos escribir los siguientes comandos en la terminal: **heroku run python manage.py makemigrations**, **heroku run python manage.py migrate** y **heroku run python manage.py createsuperuser**. De esta manera se sincronizará la base de datos PostgreSQL de heroku. En versiones anteriores de django se permitía realizar los pasos anteriores con **python manage.py syncdb**, en las nuevas se permite, pero el mismo django te recomienda al usar el último comando que no lo uses.
+- Para actualizar y/o sincronizar la base de datos se debe poner en la terminal lo siguiente: 
+ **heroku run python manage.py makemigrations**
+ **heroku run python manage.py migrate**
+ **heroku run python manage.py createsuperuser**. 
+
+
+
