@@ -2,7 +2,7 @@
 
 [![Build Status](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master/build_image)](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master)
 
-[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://MiTienda.herokuapp.com/)
+[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://myclient.herokuapp.com/)
 
 
 ## **Proyecto de IV(infraestructura Virtual) junto con DAI(DESARROLLO DE APLICACIONES DE INTERNET)** ##
@@ -85,7 +85,15 @@ Nota: **AVANCES**: se pueden ver en el [avances.md](avances.md).
 
 
 
+###Entorno de pruebas
 
+De entorno de pruebas he escogido docker, ya que lo he trabajado en la asignatura de Infraestructura Virtual. Nos dará la posibilidad de desplegar aplicaciones en contenedores en una máquina anfitriona determinada.
+
+Mi imagen desplegada se puede ver [aquí](https://hub.docker.com/r/lorenmanu/submodulo-lorenzo/).
+
+Los pasos que he seguido para su creación se explican en el siguiente [archivo](docker.md).
+
+También hemos creado un archivo para el despliegue en **docker.hub**, puede verse [aquí](despligue_docker.sh).
 
 
 
