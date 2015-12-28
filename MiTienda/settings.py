@@ -37,6 +37,10 @@ APPEND_SLASH=False
 MEDIA_URL = 'http://localhost:8000/media/'
 
 
+
+
+
+
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_PATH = os.path.join(BASE_DIR,'static')
