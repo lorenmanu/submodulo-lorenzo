@@ -9,8 +9,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-from unipath import Path
-RUTA_PROYECTO=Path(__file__).ancestor(2)
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -34,6 +32,7 @@ USE_TZ = True
 
 SITE_ID = 1
 
+APPEND_SLASH=False
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
@@ -43,26 +42,16 @@ MEDIA_ROOT = RUTA_PROYECTO.child("media")
 # Examples: "http://example.com/media/", "http://media.example.com/"
 MEDIA_URL = 'http://localhost:8000/media/'
 
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/var/www/example.com/static/"
-STATIC_ROOT = RUTA_PROYECTO.child('estatico')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = RUTA_PROYECTO.child('static')+"/"
+STATIC_PATH = os.path.join(BASE_DIR,'static')
 
+STATIC_URL = '/static/' # You may find this is already defined as such.
 
-# Additional locations of static files
 STATICFILES_DIRS = (
-    RUTA_PROYECTO.child('static'),
- 
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    STATIC_PATH,
 )
-
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -114,6 +103,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'apps.inicio',
     'apps.productos',
+    'apps.tiendas',
 )
 
 
@@ -166,4 +156,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
 
