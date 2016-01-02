@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu
 
 #producto
 MAINTAINER Lorenzo Manuel Rosas Rodríguez <lorenrr1@gmail.com>
