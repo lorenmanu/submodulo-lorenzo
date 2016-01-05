@@ -22,81 +22,183 @@ La plataforma albergará un foro donde poder opinar sobre las diferentes transac
 **El módulo  Lorenzo Manuel Rosas Rodríguez**: Este módulo implementará el sistema web, por lo que se encargará de la interfaz gráfica de la misma así como de la parte que lanzará peticiones de operaciones a la base de datos. Para ello voy a usar Django, ya que es lo que vamos a usar también en la asignatura de Diseño de Aplicaciones de Internet.
 
 
-##Herramienta de construcción:
-Yo he elegido en mi proyecto como herramienta de construcción usar Makefile, ya que lo he usado a lo largo de mi titulación. Además de ello porque nos permite avanzar en nuestro sin modificar este archivo. Tendré las siguientes opciones:
+##Herramienta de Construcción
 
-- clean: para borrar los archivos que se generan y no queremos. **make clean**
+Para este apartado hemos usado el archivo que nos proporciona python, que es *manage.py*. El cual nos afrecerá entre otras opciones:
 
-- install: instalará todo lo necesario para ejecutar la aplicación. **make install**
+- **python manage.py runserver IP:PUERTO**: ejecutará nuestra aplicación con la ip y el puerto especificado.
+- **python manage.py createsuperuser**: creará un usuario para la base de datos.
+- **python manage.py makemigrations y python manage.py migrate**: para sincronizar la base de datos.
+- **python manage.py startproject**: para crear un proyecto.
+- **python manage.py startapp**: para crear una aplicación.
+- **python manage.py test**: para ejecutar los tests, lo veremos detallado en la integración continua(snap y travis).
 
-- test: que nos testeará la aplicación. **make test**
+He creado también los siguientes archivos: 
 
-- run: nos ejecutará la aplicación. **make run**
+- [docker_install_and_run](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/docker_install_and_run.sh)
+- [heroku_deploy](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/heroku_deploy.sh)
+- [run_app](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/run_app.sh)
 
-- doc: nos generará la documentación. **make doc**
+## Instalación local de la aplicación
 
-Mi mafefile es [este](Makefile):
+Para ello basta con ejecutar los siguientes comandos:
+```
+$ git clone https://github.com/javiergarridomellado/IV_javiergarridomellado.git
+$ cd IV_javiergarridomellado
+$ python manage.py migrate
+$ python manage.py createsuperuser
+$ python manage.py runserver
+```
 
-###Tests
+##Desarrollo basado en pruebas
 
-Aquí usaré  los tests, cuya finalidad será comprobar la funcionalidad de mi aplicción conforme la vaya desarrollando, es decir, cada vez que hagamos un **git push** se comprobará si nuestra aplicación se ejecuta correctamente( esto último a sincronizarlo con travis, lo veremos depués).
+Para las pruebas he usado el sistema de testeo de Django. Basta con ejecutar el siguiente comando:
 
-Al tener dos aplicaciones en mi proyecto, tendré dos test, uno para mi aplicación productos y otro para mi aplicación inicio:
+**python manage.py test** ó **python manage.py test nombreaplicacion**
 
-- Test para [productos](apps/productos/tests.py).
-- Test para [inicio](apps/inicio/tests.py).
+Puede verse los correspondientes [tests](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/apu/tests.py) que se realizan.Se usan tanto para **travis** como para **snap-ci**.
 
+![tests](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/tests_zpstcqojtb8.png)
 
-###Integración continua
+##Integración continua
 
-Aquí he escogido [travis](https://travis-ci.org/). Como he dicho antes, cada vez que realice un **git push** se comprobará el correcto funcionamiento de mi aplicación. Los archivos creados para poder usar travis son:
-- [setup.py](setup.py).
-- [.travis.yml](.travis.yml).
+En este paso he elegido dos sistemas de integración continua de modo que cada cambio que se realice implique una ejecución de los tests mencionados anteriormente, de esta manera se comprueba que la aplicación sigue funcionando correctamente.
 
-
-- Registrarme en la página de travis e indicar el repositorio que queremos que compruebe.
-- En nuestro repositorio de github, en el apartado **Setting/Webhooks&services** tenemos que activar el apartado de **Travis** y  pulsar **Test Service** para que inicie el test.
-
-Una vez regitrados en travis, indicado el repositorio que queremos que se utilice y haber puesto en el apartado **Setting/Webhooks&services** que tenemos que activar el apartado de **Travis** y  pulsar **Test Service** para que inicie el test, nos saldrá algo como lo siguiente;
-
-![travis](https://www.dropbox.com/s/uoyn00dq4dw8vph/img23.png?dl=1)
-
-
-
-## Despliegue en un Paas
- Como Paas he usado Heroku, porque es el que he trabajo durante la realización de los ejercicios. Sobre sus características más reseñables destaco que es gratuito y permite usar el lenguaje python y Framework Django (el cual usa nuestra aplicación). Es necesario para realizar este apartado crear o modificar los siguientes archivos:
-
-- [Procfile](Profile): para indicar a heroku que tiene que lanzar.
-
-- [requirements.txt](requirements.txt): especifica todo lo que es necesario instalar.
-
-El siguiente paso es registrarse en Heroku. Una vez realizado el registro se tendría que ejecutar desde la máquina local una serie de comandos, los especificaremos en el siguiente [archivo](heroku.md):
+En mi caso, he realizado la integración continua con [Travis](https://travis-ci.org/javiergarridomellado/IV_javiergarridomellado) y con [snap-ci](https://snap-ci.com/javiergarridomellado/IV_javiergarridomellado/branch/master) ya que me parecieron sencillos y muy completos.
 
 
-Mi aplicación desplegada puede verse[aquí](https://MiTienda.herokuapp.com/).
+[Más información](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/travis.md)
 
-Además he añadido un archivo denominado para desplegar la aplicación, el cual es el [este](despliegue.sh).
-Si se tiene alguna duda sobre este archivo puede verse este [enlace](https://github.com/iblancasa/BackendSI2-IV/wiki/DespliegueHeroku).
+## Despliegue en un Paas Heroku
 
-También he usado para la integración continua snap-ci. Así cada vez que realiza un **git push** se comprobará la correcta funcionalidad de mi aplicación pasando los tests y posteriormente se desplegará. La sincronización de mi repositorio con travis puede verse [aquí](snap-ci.md):
+Me he decantado por Heroku por la facilidad para el despliegue y porque es la que pedían en los ejercicios de la relación.
+Esta es la aplicación desplegada en Heroku: [https://apuestas.herokuapp.com/](https://apuestas.herokuapp.com/)
+
+Se ha automatizado el despliegue en heroku con el script [heroku_deploy](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/heroku_deploy.sh)
+
+[Más información](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/heroku.md)
+ 
+
+## Despliegue remoto: Fabric
+
+Con la ayuda de [Fabric](http://www.fabfile.org/), que es una biblioteca de Python para automatizar tareas de administración haciendo uso de SSH, he creado un entorno de pruebas en una [máquina virtual de Azure](https://azure.microsoft.com/es-es/).
+
+La creación del entorno Docker en Azure usando el archivo [fabfile](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/fabfile.py) puede consultarse [aqui](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/fabfile.md).
+
+Como he creado la máquina virtual puede [consultarse](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/azure.md).
+
+La aplicación ( del Docker ) desplegada es la siguiente [http://apuestas.westeurope.cloudapp.azure.com/](http://apuestas.westeurope.cloudapp.azure.com/).
+
+## Entorno de pruebas:[Docker](https://www.docker.com/)
+
+Se usa Docker como plataforma que automatiza el despliegue de la aplicación dentro de contenedores software, de manera que pueda probarse en un entorno aislado antes de desplegarla a producción.
+
+La imagen de la aplicación es la [siguiente](https://hub.docker.com/r/javiergarridomellado/iv_javiergarridomellado/)
+
+Para crear el entorno de prueba se ha provisto del archivo **docker_install_and_run.sh**(explicado en el siguiente apartado), basta con ejecutar:
+```
+./docker_install_and_run.sh
+```
+Sino se desea usar el script puede descargarse la imagen directamente ejecutando:
+ ```
+sudo docker run -t -i javiergarridomellado/iv_javiergarridomellado:apuestas /bin/bash
+```
+
+[Más información](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/docker.md)
 
 
-Nota: **AVANCES**: se pueden ver en el [avances.md](avances.md).
+## Automatización o Modo de Uso ( Online )
+
+Consultar el apartado de [Despliegue Remoto](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/fabfile.md).
+
+Notar que se ha añadido un script [heroku_deploy.sh](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/heroku_deploy.sh) el cual despliega la aplicación en el PaaS Heroku siempre y cuando las pruebas en el entorno seguro de Docker hayan sido satisfactorias. Dicho script se encuentra en `IV_javiergarridomellado/scripts`.
 
 
 
-###Entorno de pruebas
+## Automatización o Modo de Uso ( Local )
 
-De entorno de pruebas he escogido docker, ya que lo he trabajado en la asignatura de Infraestructura Virtual. Nos dará la posibilidad de desplegar aplicaciones en contenedores en una máquina anfitriona determinada.
+Para facilitar el uso de la aplicación se han añadido tres [scripts](https://github.com/javiergarridomellado/IV_javiergarridomellado/tree/master/scripts) de manera que cualquier persona con un conocimento básico pueda probarla en un entorno tanto aislado como online.
 
-Mi imagen desplegada se puede ver [aquí](https://hub.docker.com/r/lorenmanu/submodulo-lorenzo/).
+Los pasos a seguir son los siguientes:
 
-Los pasos que he seguido para su creación se explican en el siguiente [archivo](docker.md).
+- Clonar o copiar el contenido del archivo [docker_install_and_run.sh](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/docker_install_and_run.sh) en un archivo **.sh**
+- Dar permisos de ejecución mediante la orden **chmod**, por ejemplo `chmod 777 docker_install_and_run.sh`
+- Ejecutar el archivo mediante la orden `./docker_install_and_run.sh`
 
-También hemos creado un archivo para el despliegue en **docker.hub**, puede verse [aquí](despligue_docker.sh).
+Con esto nos encontramos dentro de la imagen descargada, la cual tiene la aplicación dentro. Hecho esto, hay que teclear `cd IV_javiergarridomellado/scripts` y se nos abre un abanico de dos posibilidades:
+gi
+![dockerrun](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/dockerrun_zpsvewnjp9u.png)
+
+### Ejecución 
+
+De esta manera se ejecuta la aplicación de manera local(obviamente aislado del sistema anfitrión ya que se encuentra dentro del contenedor):
+- Ejecutar la orden `ifconfig` para conocer la IP que hay que poner en el navegador.
+- Dar permisos de ejecución mediante la orden **chmod** al archivo [run_app.sh](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/run_app.sh), por ejemplo `chmod 777 run_app.sh`
+- Ejecutar el archivo mediante la orden `./run_app.sh`
+- Ingresar en el navegador anfitrión `ip_del_contenedor:8000` , con ello tendremos la aplicación lanzada.
+
+![ifconfig](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/ifconfig_zps6z0uav6o.png)
+
+![runapp](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/runapp_zpsnsa9qlud.png)
+
+![nav](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/nav_zpsx1vfvbbm.png)
+
+### Despliegue en Paas
+
+De esta manera se despliega la aplicación en el PaaS Heroku (obviamente es interesante realizar el paso anterior y probar la aplicación en dicho entorno aislado antes de desplegarlo) y se utiliza la base de datos PostgreSQL que nos proporciona Heroku:
+- Dar permisos de ejecución mediante la orden **chmod** al archivo [heroku_deploy.sh](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/heroku_deploy.sh), por ejemplo `chmod 777 heroku_deploy.sh`
+- Ejecutar el archivo mediante la orden `./heroku_deploy.sh`
+- Ingresar el user/password de nuestra cuenta Heroku y automaticamente la aplicación queda desplegada.
+
+![herokudeploy](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/herokudeploy_zpsnx8ryz6s.png)
+
+![user](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/her_zpsp25ztb4u.png)
 
 
 
 
 
+##Generacion de Documentación
+- Ingresar en el directorio **/apu**
+- Ejecutar en el terminal **epydoc --html views.py models.py**
 
+
+## Cambios Realizados
+
+Se ha añade un [fichero](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/cambios.md) donde se comentan los cambios más relevantes entre los diferentes hitos para facilitar la corrección de la práctica.
+
+## Comandos Básicos
+
+###Instalar dependencias
+```
+$ pip install -r requirements.txt
+```
+
+###Sincronizar base de datos
+```
+$ python manage.py migrate --noinput
+```
+
+###Test
+```
+$ python manage.py test
+```
+
+###Arrancar aplicación( 2 opciones )
+```
+$ ./run_app.sh
+```
+
+```
+$ python manage.py runserver
+```
+
+###Despliegue en heroku
+```
+$ ./heroku_deploy.sh
+```
+
+###Instalar imagen docker(Contenedor Ubuntu+Aplicación)
+```
+$ ./docker_install_and_run.sh
+```

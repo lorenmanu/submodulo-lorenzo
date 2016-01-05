@@ -1,31 +1,46 @@
-from fabric.api import *
-from fabric.colors import green as _green, yellow as _yellow
-import boto
-import boto.ec2
-import time
 
-def create_server():
-    """
-        Creates EC2 Instance
-        """
-    print(_green("Started..."))
-    print(_yellow("...Creating EC2 instance..."))
-    
-    conn = boto.ec2.connect_to_region("oregon", aws_access_key_id=ec2_key, aws_secret_access_key=ec2_secret)
-    
-    image = conn.get_all_images(ec2_amis)
-    
-    reservation = image[0].run(1, 1, key_name=ec2_key_pair, security_groups=ec2_security,
-                               instance_type=ec2_instancetype)
-        
-    instance = reservation.instances[0]
-    conn.create_tags([instance.id], {"Name":config['INSTANCE_NAME_TAG']})
-    while instance.state == u'pending':
-      print(_yellow("Instance state: %s" % instance.state))
-      time.sleep(10)
-      instance.update()
-                                
-    print(_green("Instance state: %s" % instance.state))
-    print(_green("Public dns: %s" % instance.public_dns_name))
-    
-    return instance.public_dns_name
+from fabric.api import run, local, hosts, cd
+from fabric.contrib import django
+
+#infomacion del host
+def informacion_host():
+    run('uname -s')
+
+#descarga de la aplicacion utilizando git
+def get_aplicacion():
+	run('sudo apt-get update')
+	run('sudo apt-get install -y git')
+	run('sudo git clone https://github.com/hugobarzano/osl-computer-management.git')
+
+#Instalacion necesaria para host virgen
+def instalacion():
+	run('cd osl-computer-management/ && sudo sh install.sh')
+
+#Sincronizacion de la aplicacion y la base de datos
+def sincronizacion():
+	run('cd osl-computer-management/ && python manage.py syncdb --noinput')
+
+#Ejecucion de test
+def testeo():
+	run('cd osl-computer-management/ && make test')
+
+#Ejecucion de la aplicacion
+def ejecucion():
+	run('cd osl-computer-management/ && make run')
+
+#peticion
+def peticion():
+	run('curl http://localhost:80/')
+
+
+
+#Ejecucion remota del docker
+#Instalacion de docker y descarga de imagen
+def getDocker():
+	run('sudo apt-get update')
+	run('sudo apt-get install -y docker.io')
+	run('sudo docker pull lorenmanu/submodulo-lorenzo')
+
+#Ejecucion de docker
+def runDocker():
+	run('sudo docker run -p 80:80 -i -t lorenmanu/submodulo-lorenzo')
