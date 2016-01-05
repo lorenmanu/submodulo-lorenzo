@@ -35,9 +35,9 @@ Para este apartado hemos usado el archivo que nos proporciona python, que es *ma
 
 He creado también los siguientes archivos: 
 
-- [docker_install_and_run](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/docker_install_and_run.sh)
-- [heroku_deploy](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/heroku_deploy.sh)
-- [run_app](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/run_app.sh)
+- [docker_install_and_run](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/docker_install_and_run.sh): para obtener y ejecutar el docker de manera local.
+- [heroku_deploy](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/heroku_deploy.sh): para desplegar la aplicación en heroku.
+- [run_app](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/run_app.sh): para ejecutar nuestra aplicación de manera local.
 
 ## Proceso para la instalación local de la aplicación
 
@@ -79,7 +79,7 @@ Los dos sistemas de integración continua usados son:
 - [Snap-ci](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master/build_image).
 
 
-Para más información se puede consultar el siguiente [archivo](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/travis.md).
+Para más información se puede consultar el siguiente [archivo](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/travis.md).
 
 ## Despliegue en un Paas Heroku
 
