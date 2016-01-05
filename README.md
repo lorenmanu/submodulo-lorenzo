@@ -133,7 +133,7 @@ Los pasos de como usar **Docker Hub** se detallan en el siguiente [archivo](http
 Enlace al repositorio de la [Automated Build](https://hub.docker.com/r/lorenmanu/submodulo-lorenzo/).
 
 ###Despliegue remoto: Fabric
-Para realizar el despliegue remoto he usado [Fabric](http://www.fabfile.org/), el cual es una biblioteca de python para realizar tareas de administración por ssh. Con el he creado un entorno de pruebas en ec2, que es un servicio web que proporciona capacidad informática con tamaño modificable en la nube, para más información se puede consultar el siguiente [enlace](https://aws.amazon.com/es/ec2/).
+Para realizar el despliegue remoto he usado [Fabric](http://www.fabfile.org/), el cual es una biblioteca de python para realizar tareas de administración por ssh. Con él he creado un entorno de pruebas en ec2, que es un servicio web que proporciona capacidad informática con tamaño modificable en la nube, para más información se puede consultar el siguiente [enlace](https://aws.amazon.com/es/ec2/).
 
 Para la creación del entorno Docker en mi máquina virtual ec2 he usado un archivo [fabfile](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/fabfile.py). Lo que hace este archivo se puede ver [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/fabfile.md).
 

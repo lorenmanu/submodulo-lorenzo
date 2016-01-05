@@ -1,26 +1,25 @@
 ###Despliegue remoto Fabric
 
-Para realizarlo tendremos que tener creada una instancia en ec2, la explicación se su creación se detalla en **ec2.md** en la carpeta documentación del proyecto. Los pasos realizados para el despliegue son:
+Para realizarlo tendremos que tener creada una instancia en ec2, la explicación de su creación se detalla en **ec2.md** en la carpeta documentación del proyecto. Los pasos realizados para el despliegue son:
 
-**Primero**: Localizar nuestro archivo con la clave privada proporcionado por Amazon. Este archivo tendrá extensión **.pem** y Amazon nos permitirá su descarga cuando creemos la instancia(**documentacion/ec2.md**). Copiaremos la ruta a dicho archivo y lo añadiremos a la conexíon **ssh** con el siguiente comando:
+**Primero**: Localizar nuestro archivo con la clave privada proporcionada por Amazon. Este archivo tendrá extensión **.pem** y Amazon nos permitirá su descarga cuando creemos la instancia(**documentacion/ec2.md**). Copiaremos la ruta a dicho archivo y lo añadiremos a la conexíon **ssh** con el siguiente comando:
 
-´´´
+```
 ssh-add "ruta archivo"
 
-´´´
-
+``
 En el siguiente pantallazo muestro como Amazon me indica realizar la conexión ssh, con el correspondiente archivo(**extensión .pem**), como lo busco y lo añado a ssh.
 
 ![img1](https://www.dropbox.com/s/exnxucut9noig86/img1_iv.png?dl=1)
 
-**Nota**: antes de añadir el archivo a ssh debemos ponerle los permisos adecuados, por lo que el la terminal indicaremos:
+**Nota**: antes de añadir el archivo a ssh debemos ponerle los permisos adecuados, por lo que en la terminal indicaremos:
 
 ```
 chmod 400 "nombre_archivo".pem
 
 ```
 
-**Segundo**: Una vez realizado el paso anterior, me dispongo a usar mi archivo **fabfile.py**. En este archivo tengo diferentes tareas automatizadas para realizar por ssh. Para realizarlas, tendremos que dirigirnos al directorio donde se encuentra el archivo **fabfile.py** y seguir la siguiente sintasis en la terminal:
+**Segundo**: Una vez realizado el paso anterior, me dispongo a usar mi archivo **fabfile.py**. En este archivo tengo diferentes tareas automatizadas para realizarlas por ssh. Para ello, tendremos que dirigirnos al directorio donde se encuentra el archivo **fabfile.py** y seguir la siguiente sintaxis en la terminal:
 
 ```
 fab -H NombreUsuario@Nombredelhost/o/IPelhost operación
@@ -47,7 +46,7 @@ Las operaciones que permite realizar mi **fabfile.py** son:
 - Ejecución de la aplicación:
 ![img7](https://www.dropbox.com/s/insyi6vmy5vsuzj/img7_iv.png?dl=1)
 
-**Nota**: como se puede ver en la anterior imagen se ha ejecutado la aplicación y accedido a ella por el navegador desde el DNS que nos da Amazon(**documentacion/ec2.md**). Esto es posible si configuramos las reglas correctamente, se detallara en **documentacion/ec2.md**.
+**Nota**: como se puede ver en la anterior imagen se ha ejecutado la aplicación y accedido a ella por el navegador desde el DNS que nos da Amazon(**documentacion/ec2.md**). Esto es posible si configuramos las reglas correctamente, se detallará en **documentacion/ec2.md**.
 
 El enlace de mi app en ec2 de Amazon se puede ver [aquí](ec2-52-11-219-71.us-west-2.compute.amazonaws.com).
 
