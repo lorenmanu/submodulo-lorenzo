@@ -98,7 +98,11 @@ Aclaraciones sobre la modificación del archivo **settings.py**:
 - Para actualizar y/o sincronizar la base de datos se debe poner en la terminal lo siguiente: 
  **heroku run python manage.py makemigrations**
  **heroku run python manage.py migrate**
+<<<<<<< HEAD
  **heroku run python manage.py createsuperuser**. 
 
 
 
+=======
+ **heroku run python manage.py createsuperuser**. 
+>>>>>>> 282b642307c70e4d90030758ad82ecd07117bce4

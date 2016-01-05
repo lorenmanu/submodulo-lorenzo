@@ -18,13 +18,14 @@ from rest_framework.test import APITestCase
 
 class RutasTests(APITestCase):
 
-    def Autor(self):
+    def producto(self):
         q1 = Perfiles(usuario='Lorenzo',telefono='653057946')
         q1.save()
         self.assertEqual(response.content,'{"usuario":"Lorenzo","telefono":"653057946"}')
+        
         print("Question consultada XD2")
 
-    def test_detalle_varios_autores(self):
+    def test_detalle_varios_productos(self):
         q1 = Perfiles(usuario='Lorenzo' , telefono='653057946')
         q1.save()
         q2 = Perfiles(usuario='Manuel' , telefono='653057946')
