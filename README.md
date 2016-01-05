@@ -94,11 +94,24 @@ Como se puede ver hago uso del archivo **manage.py**, el cual me permitirá real
 
 ###Integración Continua
 
-Aquí he usado dos sistemas de integración continua, de esta manera cada vez que realice un cambio en la aplicación se comprobará su correcto funcionamento. Los sistemas usados son:
+Aquí he usado dos sistemas de integración continua, de esta manera cada vez que realice un cambio en la aplicación se comprobará su correcto funcionamento ejecutando los tests. Los sistemas usados son:
 
 - **Travis**: estará sincronizado con nuestro repositorio, cada vez que se realice un cambio en la aplicación comprobará el correcto funcionamiento de esta.
 
 - **Snap-Ci**: usado para heroku, lo veremos en el siguiente apartado.
+
+Al haber tres aplicaciones( en la carpeta apps), habrá tres archivos tests, uno para cada aplicación:
+
+- [Tests_Inicio](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/apps/inicio/tests.py)
+- [Tests_Productos](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/apps/productos/tests.py)
+- [Tets_Tiendas](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/apps/tiendas/tests.py)
+
+Cabe destacar que los tests los podemos ejecutar en local, introduciendo en la terminal:
+
+```
+python manage.py tests
+
+```
 
 ###Despliegue en un Paas Heroku
 
@@ -110,6 +123,7 @@ He proporcionado un archivo para el despliegue en heroku, puede verse [aquí](ht
 
 Para mas información de como la he desplegado en heroku, visita el [enlace](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/heroku.md).
 
+###DockerHub
 
 
 
