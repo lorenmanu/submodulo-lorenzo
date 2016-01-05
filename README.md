@@ -2,7 +2,7 @@
 
 [![Build Status](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master/build_image)](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master)
 
-[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://combook.herokuapp.com/)
+[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://myclient.herokuapp.com/)
 
 
 ## **Proyecto de IV(infraestructura Virtual) junto con DAI(DESARROLLO DE APLICACIONES DE INTERNET** ##
@@ -104,10 +104,11 @@ Aquí he usado dos sistemas de integración continua, de esta manera cada vez qu
 
 Aquí he decidido usar Heroku, el cual se caracteriza por su fácil sincronización con github y por su caracter gratuito.
 
-Podemos ver la aplicación desplegada en el siguiente [enlace](https://combook.herokuapp.com/).
+Podemos ver la aplicación desplegada en el siguiente [enlace](https://myclient.herokuapp.com/).
 
 He proporcionado un archivo para el despliegue en heroku, puede verse [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/heroku_deploy.sh).
 
+Para mas información de como la he desplegado en heroku, visita el [enlace](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/heroku.md).
 
 
 

@@ -1,60 +1,33 @@
-# Entorno de pruebas: [Docker](https://www.docker.com/)
+## Como usar hub.docker.com ##
 
-El primer paso para crear la imagen es definir un archivo [Dockerfile](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/Dockerfile).  Docker usa dicho archivo para definir la imagen, en mi caso contiene lo siguiente:
+Deberemos realizar los siguientes pasos para desplegar nuestra aplicación en docker-hub:
+- Registrarnos en [hub.docker.com](https://hub.docker.com/add/automated-build/github/orgs/?namespace=lorenmanu).
+- Una vez registrados le daremos a **Create/Create Automated Build**.
+- Despues indicaremos el repositorio que queremos sincronizar:
+![img4](https://www.dropbox.com/s/f1qhv3f3kii5e74/img4.png?dl=1)
+- Si se han realizado todos los pasos anteriores correctamente saldrá:
+![img5](https://www.dropbox.com/s/48m4nnlza084whp/img5.png?dl=1)
+- El Dockerfile que se usará para contruir la imagen se puede ver desde **hub.docker.com** aquí:
+![img6](https://www.dropbox.com/s/9p89ewefjhcm4hw/img6.png?dl=1)
+
+Para ejecutar la imagen en nuestra máquina anfitriona hay que realizar lo siguiente:
+
+- Para descargar la imagen deberemos introducir en la terminal.
 ```
-FROM ubuntu:latest
-
-#Autor
-MAINTAINER Francisco Javier Garrido Mellado <franciscojaviergarridomellado@gmail.com>
-
-#Actualización del Sistema 
-RUN sudo apt-get -y update
-
-#Descarga de la aplicación
-RUN sudo apt-get install -y git
-RUN sudo git clone https://github.com/javiergarridomellado/IV_javiergarridomellado.git
-
-# Instalación de Python y PostgreSQL
-RUN sudo apt-get install -y python-setuptools
-RUN sudo apt-get -y install python-dev
-RUN sudo apt-get -y install build-essential
-RUN sudo apt-get -y install python-psycopg2
-RUN sudo apt-get -y install libpq-dev
-RUN sudo easy_install pip
-RUN sudo pip install --upgrade pip
-
-#Instalación de dependencias de la aplicacion
-
-RUN cd IV_javiergarridomellado/ && sudo pip install -r requirements.txt
-
-#Sincronización de la base de datos
-RUN cd IV_javiergarridomellado/ && python manage.py syncdb --noinput
+docker pull lorenmanu/submodulo-lorenzo
 
 ```
-Después en la web de [Docker Hub](https://hub.docker.com/), se pulsa en "Create" y despues en "Create Automated Build" sobre el repositorio del proyecto, con esto se comienza a crear la imagen.
 
-Puede verse a continuación el repositorio enlazado y la construcción automática de la imagen:
+![img7](https://www.dropbox.com/s/yl4i0e5ft3lmpld/img7.png?dl=1)
 
-![repositorio](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/enlace_zpsmkcd2cx6.png)
+- Para arrancar la imagen descargada en el paso anterior:
 
-![imagen](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/imagen_zpstbyi9pf3.png)
-
-Por tanto, cada cambio que se realice al repositorio de Github se integra de manera automática y en tiempo real a la imagen de Docker Hub.Cada vez que se haga un "git push" llevará asociado un rebuild de la imagen.
-
-Para crear el entorno de pruebas en nuestro ordenador se ha provisto de un script en la ruta `IV_javiergarridomellado/scripts`.Solo hay que ejecutar el archivo **docker_install_and_run.sh**(no olvidar dar permisos de ejecución con chmod al archivo):
 ```
-./docker_install_and_run.sh
-```
-El contenido del archivo es el siguiente:
-```
-sudo apt-get update
-sudo apt-get install -y docker.io
-sudo docker pull javiergarridomellado/iv_javiergarridomellado:apuestas
-sudo docker run -t -i javiergarridomellado/iv_javiergarridomellado:apuestas /bin/bash
-```
-Esto lo que hace es instalar Docker, crear el contenedor con la aplicación instalada en él y arrancar el entorno de pruebas.Solo queda ingresar en el directorio `IV_javiergarridomellado` y ejecutar `python manage.py runserver 0.0.0.0:1111`(puede usarse otro puerto).Otra manera de ejecutar la aplicación es ejecutar el archivo `run_app.sh` tal y como se explica en el Readme principal.
-Hecho esto, solo queda acceder al navegador anfitrión e introducir la IP del contenedor Docker.
+sudo docker run i -t lorenmanu/submodulo-lorenzo /bin/bash
 
-![automa](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/automa_zpsajhntukm.png)
+```
+![img8](https://www.dropbox.com/s/jdwqgser8f9ve5a/img8.png?dl=1)
 
-![navegador](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/nav_zpszfauvqbh.png)
+- Nos vamos al directorio de la app, obtenemos su dirección ip con el comando **ifconfig**, y finalmente la lanzaremos pa visualizarla en nuestro ordenador:
+
+![img9](https://www.dropbox.com/s/h9vb2a8jvsz83qg/xexo.png?dl=1)
