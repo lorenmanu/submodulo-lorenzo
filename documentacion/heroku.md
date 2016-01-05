@@ -13,6 +13,13 @@ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 ```
 
+- Crear un archivo Procfile, en el cual se indica a heroku que se quiere iniciar una instancia web, y dejar que gunicorn ejecute nuestra aplicación dentro de ella:
+
+```
+web: gunicorn MiTienda.wsgi --log-file -
+
+```
+
 - Realizar login:
 
 ```
@@ -96,13 +103,13 @@ Aclaraciones sobre la modificación del archivo **settings.py**:
 - En DATABASE_URL se indica la url de la base de datos postgreSQL de Heroku( que deberemos haber creado antes), hay que darle a show para verlo.
 
 - Para actualizar y/o sincronizar la base de datos se debe poner en la terminal lo siguiente: 
- **heroku run python manage.py makemigrations**
- **heroku run python manage.py migrate**
-<<<<<<< HEAD
- **heroku run python manage.py createsuperuser**. 
+ - **heroku run python manage.py makemigrations**
+ - **heroku run python manage.py migrate**
+ - **heroku run python manage.py createsuperuser**. 
 
+También cabe destacar que hemos usado **snap-ci**. Snap-ci nos permitirá sincronizar a nuestro repositorio, y de esta forma se desglosará un pipeline con los distintos estados por los que se pasa hasta el despliegue:
 
+- Instalación de las dependencias.
+- Ejecución de los tests.
+- Despliegue.
 
-=======
- **heroku run python manage.py createsuperuser**. 
->>>>>>> 282b642307c70e4d90030758ad82ecd07117bce4

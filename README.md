@@ -104,8 +104,9 @@ Aquí he usado dos sistemas de integración continua, de esta manera cada vez qu
 
 Aquí he decidido usar Heroku, el cual se caracteriza por su fácil sincronización con github y por su caracter gratuito.
 
+Podemos ver la aplicación desplegada en el siguiente [enlace](https://combook.herokuapp.com/).
 
-
+He proporcionado un archivo para el despliegue en heroku, puede verse [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/heroku_deploy.sh).
 
 
 
