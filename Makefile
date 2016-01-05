@@ -1,4 +1,4 @@
-#Makefile FJGM segundo hito 
+#Makefile lorenmanu segundo hito 
 #clean install test run doc
 
 clean:
@@ -14,4 +14,4 @@ test:
 run:
 	python manage.py runserver
 doc:
-	epydoc --html COMBOOK/*.py 
+	epydoc --html MiTienda/*.py 
