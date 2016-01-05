@@ -35,39 +35,51 @@ Para este apartado hemos usado el archivo que nos proporciona python, que es *ma
 
 He creado también los siguientes archivos: 
 
-- [docker_install_and_run](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/docker_install_and_run.sh)
-- [heroku_deploy](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/heroku_deploy.sh)
-- [run_app](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/run_app.sh)
+- [docker_install_and_run](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/docker_install_and_run.sh)
+- [heroku_deploy](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/heroku_deploy.sh)
+- [run_app](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/run_app.sh)
 
-## Instalación local de la aplicación
+## Proceso para la instalación local de la aplicación
 
-Para ello basta con ejecutar los siguientes comandos:
+Para este apartado ejecutaremos los siguientes comandos(explicados en el apartado anterior):
 ```
-$ git clone https://github.com/javiergarridomellado/IV_javiergarridomellado.git
-$ cd IV_javiergarridomellado
-$ python manage.py migrate
-$ python manage.py createsuperuser
-$ python manage.py runserver
+git clone https://github.com/lorenmanu/submodulo-lorenzo
+cd submodulo-lorenzo
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+
 ```
 
-##Desarrollo basado en pruebas
+##Pruebas de la aplicación
 
-Para las pruebas he usado el sistema de testeo de Django. Basta con ejecutar el siguiente comando:
+En este apartado se indicará como ejecutar los tests y como he indicado en el apartado(**Herramienta de Construcción**) para ejecutar los tests creados en mi aplicación bastará con poner en el terminal:
 
-**python manage.py test** ó **python manage.py test nombreaplicacion**
+```
+python manage.py test
 
-Puede verse los correspondientes [tests](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/apu/tests.py) que se realizan.Se usan tanto para **travis** como para **snap-ci**.
+```
 
-![tests](http://i1045.photobucket.com/albums/b457/Francisco_Javier_G_M/tests_zpstcqojtb8.png)
+Al tener tres aplicaciones( en la carpeta apps), tendremos tres archivos tests:
+
+- [Tests_App_Inicio.](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/apps/inicio/tests.py)
+- [Tests_App_Productos.](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/apps/productos/tests.py)
+- [Tests_App_Tiendas.](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/apps/tiendas/tests.py)
+
 
 ##Integración continua
 
-En este paso he elegido dos sistemas de integración continua de modo que cada cambio que se realice implique una ejecución de los tests mencionados anteriormente, de esta manera se comprueba que la aplicación sigue funcionando correctamente.
+Aquí he escogido dos sistemas de integración continua, así si se modifica mi aplicación( al realizar un **git push**, por ejemplo), se ejecuten los tests del apartado **Pruebas de la aplicación**.
 
-En mi caso, he realizado la integración continua con [Travis](https://travis-ci.org/javiergarridomellado/IV_javiergarridomellado) y con [snap-ci](https://snap-ci.com/javiergarridomellado/IV_javiergarridomellado/branch/master) ya que me parecieron sencillos y muy completos.
+Los dos sistemas de integración continua usados son:
+
+- [Travis](https://travis-ci.org/lorenmanu/submodulo-lorenzo).
+
+- [Snap-ci](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master/build_image).
 
 
-[Más información](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/travis.md)
+Para más información se puede consultar el siguiente [archivo](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/travis.md).
 
 ## Despliegue en un Paas Heroku
 
