@@ -10,27 +10,27 @@ def informacion_host():
 def get_aplicacion():
 	run('sudo apt-get update')
 	run('sudo apt-get install -y git')
-	run('sudo git clone https://github.com/hugobarzano/osl-computer-management.git')
+	run('sudo git clone https://github.com/lorenmanu/submodulo-lorenzo.git')
 
 #Instalacion necesaria para host virgen
 def instalacion():
-	run('cd osl-computer-management/ && sudo sh install.sh')
+	run('cd submodulo-lorenzo/ && sudo sh install.sh')
 
 #Sincronizacion de la aplicacion y la base de datos
 def sincronizacion():
-	run('cd osl-computer-management/ && python manage.py syncdb --noinput')
+	run('cd submodulo-lorenzo/ && python manage.py syncdb --noinput')
 
 #Ejecucion de test
 def testeo():
-	run('cd osl-computer-management/ && make test')
+	run('cd submodulo-lorenzo/ && make test')
 
 #Ejecucion de la aplicacion
 def ejecucion():
-	run('cd osl-computer-management/ && make run')
+	run('cd submodulo-lorenzo/ && make run')
 
 #peticion
 def peticion():
-	run('curl http://localhost:80/')
+	run('curl http://0.0.0.0:80/')
 
 
 

@@ -123,7 +123,21 @@ He proporcionado un archivo para el despliegue en heroku, puede verse [aquí](ht
 
 Para mas información de como la he desplegado en heroku, visita el [enlace](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/heroku.md).
 
-###DockerHub
+###Docker Hub
+Docker Hub es un servicio en la nube que nos permite construir y enviar aplicaciones o servicios mediante contenedores. Y además nos permitirá también su automatización.
+
+Para su automatización será necesario un archivo Dockerfile, el mio puede verse [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/Dockerfile).
+
+Los pasos de como usar **Docker Hub** se detallan en el siguiente [archivo](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/docker.md).
+
+Enlace al repositorio de la [Automated Build](https://hub.docker.com/r/lorenmanu/submodulo-lorenzo/).
+
+###Despliegue remoto: Fabric
+Para realizar el despliegue remoto he usado [Fabric](http://www.fabfile.org/), el cual es una biblioteca de python para realizar tareas de administración por ssh. Con el he creado un entorno de pruebas en ec2, que es un servicio web que proporciona capacidad informática con tamaño modificable en la nube, para más información se puede consultar el siguiente [enlace](https://aws.amazon.com/es/ec2/).
+
+Para la creación del entorno Docker en mi máquina virtual ec2 he usado un archivo [fabfile](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/fabfile.py). Lo que hace este archivo se puede ver [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/fabfile.md).
+
+Para crear una instancia en **ec2**, he seguido los pasos detallados en el siguiente [archivo](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/ec2.md).
 
 
 
