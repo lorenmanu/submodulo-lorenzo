@@ -33,6 +33,8 @@ Para este apartado hemos usado el archivo que nos proporciona python, que es *ma
 - **python manage.py startapp**: para crear una aplicación.
 - **python manage.py test**: para ejecutar los tests, lo veremos detallado en la integración continua(snap y travis).
 
+Para su automatización, se proporciona el siguiente [makefile](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/Makefile).
+
 He creado también los siguientes archivos: 
 
 - [docker_install_and_run](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/docker_install_and_run.sh): para obtener y ejecutar el docker de manera local.
@@ -54,7 +56,7 @@ python manage.py runserver
 
 ##Pruebas de la aplicación
 
-En este apartado se indicará como ejecutar los tests y como he indicado en el apartado(**Herramienta de Construcción**) para ejecutar los tests creados en mi aplicación bastará con poner en el terminal:
+Como he indicado en el apartado(**Herramienta de Construcción**) para ejecutar los tests creados en mi aplicación bastará con poner en el terminal:
 
 ```
 python manage.py test
@@ -74,21 +76,19 @@ Aquí he escogido dos sistemas de integración continua, así si se modifica mi 
 
 Los dos sistemas de integración continua usados son:
 
-- [Travis](https://travis-ci.org/lorenmanu/submodulo-lorenzo).
+- [Travis](https://travis-ci.org/lorenmanu/submodulo-lorenzo): el cual estará sincronizado con github.
 
-- [Snap-ci](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master/build_image).
+- [Snap-ci](https://snap-ci.com/lorenmanu/submodulo-lorenzo/branch/master/build_image): este sistema en instalará las dependencias, ejecutará los tets, y la desplegará en heroku cada vez que se haga un **git push** al repositorio.
 
 
-Para más información se puede consultar el siguiente [archivo](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/travis.md).
 
 ## Despliegue en un Paas Heroku
 
-Me he decantado por Heroku por la facilidad para el despliegue y porque es la que pedían en los ejercicios de la relación.
-Esta es la aplicación desplegada en Heroku: [https://apuestas.herokuapp.com/](https://apuestas.herokuapp.com/)
+Aquí he usado **Heroku**. Este Paas se caracteriza por su fácil integración con github y por ser gratuito.
+Tiene un fichero de configurácion, llamado Procfile, en el cual se indica a este Paas que se quiere ejecutar una instancia web, y gunicorn ejecutará nuestra aplicación dentro de ella.
 
-Se ha automatizado el despliegue en heroku con el script [heroku_deploy](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/scripts/heroku_deploy.sh)
+Para el despliegue en heroku se proporciona el siguiente [archivo](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/heroku_deploy.sh)
 
-[Más información](https://github.com/javiergarridomellado/IV_javiergarridomellado/blob/master/documentacion/heroku.md)
  
 
 ## Despliegue remoto: Fabric
