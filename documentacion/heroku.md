@@ -107,7 +107,7 @@ Aclaraciones sobre la modificación del archivo **settings.py**:
  - **heroku run python manage.py migrate**
  - **heroku run python manage.py createsuperuser**. 
 
-También cabe destacar que hemos usado **snap-ci**. Snap-ci nos permitirá sincronizar a nuestro repositorio, y de esta forma se desglosará un pipeline con los distintos estados por los que se pasa hasta el despliegue:
+También cabe destacar que hemos usado **snap-ci**. Snap-ci me permitirá sincronizar a nuestro repositorio, y de esta forma se desglosará un pipeline con los distintos estados por los que se pasa hasta el despliegue:
 
 - Instalación de las dependencias.
 - Ejecución de los tests.
