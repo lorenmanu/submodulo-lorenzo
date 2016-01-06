@@ -139,5 +139,7 @@ Para la creación del entorno Docker en mi máquina virtual ec2 he usado un arch
 
 Para crear una instancia en **ec2**, he seguido los pasos detallados en el siguiente [archivo](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/ec2.md).
 
+El enlace mi instacia en EC2 donde se puede ver la aplicación es [este](http://ec2-52-11-219-71.us-west-2.compute.amazonaws.com).
+
 
 
