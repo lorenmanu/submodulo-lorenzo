@@ -4,6 +4,8 @@
 
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://myclient.herokuapp.com/)
 
+[![EC2](https://www.dropbox.com/s/st4etj28pyu11lb/aws-ec2_logo_small.jpg?dl=0)](http://ec2-52-11-219-71.us-west-2.compute.amazonaws.com)
+
 
 ## **Proyecto de IV(infraestructura Virtual) junto con DAI(DESARROLLO DE APLICACIONES DE INTERNET** ##
 
