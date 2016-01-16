@@ -116,7 +116,6 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'apps.inicio',
     'apps.tiendas',
-    'easy_maps',
 )
 
 
