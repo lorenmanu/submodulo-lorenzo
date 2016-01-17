@@ -13,7 +13,6 @@ urlpatterns = patterns('',
 
     #productos
     url(r'^producto/' , include('apps.productos.urls')),
-    url(r'^tiendas/' , include('apps.tiendas.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
