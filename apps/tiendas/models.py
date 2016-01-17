@@ -5,10 +5,11 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Zona(models.Model):
-    nombre = models.CharField(max_length=128)
+    nombre = models.CharField(max_length=128,unique=True)
     localizacion = models.CharField(max_length=128)
     views = models.IntegerField(default=0)
     slug = models.SlugField(default=0)
+    #imagen = models.ImageField(upload_to='media/tmp', blank = True)
 
     def save(self, *args, **kwargs):
                 # Uncomment if you don't want the slug to change every time the name changes
@@ -24,6 +25,8 @@ class Tienda(models.Model):
     nombre = models.CharField(max_length=128,unique=True)
     calle = models.CharField(max_length=128,unique=True)
     zona = models.ForeignKey(Zona,null=True)
+    #imagen = models.ImageField(upload_to='media/tmp', blank=True)
+    views = models.IntegerField(default=0)
 
     def __unicode__(self):  #For Python 2, use __str__ on Python 3
         return self.nombre
@@ -34,7 +37,7 @@ class UserProfile(models.Model):
 
     # The additional attributes we wish to include.
     website = models.URLField(blank=True)
-    picture = models.ImageField(upload_to='profile_images', blank=True)
+    #picture = models.ImageField(upload_to='profile_images', blank=True)
 
     # Override the __unicode__() method to return out something meaningful!
     def __unicode__(self):
