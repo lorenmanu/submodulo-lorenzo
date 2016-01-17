@@ -7,7 +7,7 @@ Para realizarlo tendremos que tener creada una instancia en ec2, la explicación
 ```
 ssh-add "ruta archivo"
 
-```
+``
 En el siguiente pantallazo muestro como Amazon me indica realizar la conexión ssh, con el correspondiente archivo(**extensión .pem**), como lo busco y lo añado a ssh.
 
 ![img1](https://www.dropbox.com/s/exnxucut9noig86/img1_iv.png?dl=1)

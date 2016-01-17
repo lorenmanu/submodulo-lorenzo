@@ -14,9 +14,9 @@ Una vez registrados en Amazon, donde tendremos que dar una tarjeta de crédito y
 
 ![img12](https://www.dropbox.com/s/luntkxme7qtzxgi/img12_iv.png?dl=1)
 
-**Nota**: Una vez aquí nos pedirán el sistema operativo que queramos, características..., me los saltaré porque no son muy relevantes para el proceso, quiero detallarme más en la siguiente que es importante. Lo importante de este paso es que nos dirán que nos descarguemos un archivo en extensión **.pem**, que será el que contrendrá la clave secreta y el que nos permitirá realizar la conexión a nuestra instancia por ssh.
+**Nota**: Una vez aquí nos pedirán el sistema operativo que queramos, características..., me los saltaré porque no son muy relevantes para el proceso, quiero detallarme más en lo siguiente que es importante. Lo importante de este paso es que nos dirán que nos descarguemos un archivo en extensión **.pem**, que será el que contrendrá la clave secreta y el que nos permitirá realizar la conexión a nuestra instancia por ssh.
 
-- Una vez creada la máquina, tendremos que indicar las peticiones que queremos atender, para ello nos tenemos que fijar en la pestaña **description** en el apartado **Security groups** el nombre que tiene, en mi caso es **launch-wizard-3**. En el apartado description también podemos ver otra información, como puede ser la ip pública, el dns que nos da Amazon...
+- Una vez creada la máquina, tendremos que indicar las peticiones que queremos atender, para ello nos tenemos que fijar en la pestaña **description** en el apartado **Security groups** el nombre que tiene, en mi caso es **launch-wizard-3**. En el apartado **description** también podemos ver otra información, como puede ser la ip pública, el dns que nos da Amazon...
 
 ![img14](https://www.dropbox.com/s/d5jgusar1pe9mw2/img14_iv.png?dl=1)
 

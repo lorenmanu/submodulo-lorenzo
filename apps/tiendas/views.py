@@ -5,28 +5,29 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-def inicio(request):
-    # Query the database for a list of ALL categories currently stored.
-    # Order the categories by no. likes in descending order.
-    # Retrieve the top 5 only - or all if less than 5.
-    # Place the list in our context_dict dictionary which will be passed to the template engine.
-    try:
-        zonas = Zona.objects.all()
-        zonas_dict = {'zonas': zonas}
-        return render(request, 'tiendas/index.html', zonas_dict)
-    except Zona.DoesNotExist:
-        zona_aux = None
 
 
-# Create your views here.
+def add_zona(request):
+    return render(request, 'tiendas/add_zona.html')
+
+def add_tienda(request, zona_name_slug):
+    return render(request, 'tiendas/add_tienda.html', context_dict)
+
 def mostrar_tiendas(request,zona_name_slug):
-    # Query the database for a list of ALL categories currently stored.
-    # Order the categories by no. likes in descending order.
-    # Retrieve the top 5 only - or all if less than 5.
-    # Place the list in our context_dict dictionary which will be passed to the template engine.
+    return render(request, 'tiendas/mostrartiendas.html', tiendas_dict)
+
+def user_login(request):
+    return render(request, 'tiendas/login.html')
+
+def inicio(request):
+    zona_list = Zona.objects.order_by('nombre')[:5] #orden ascendente a-z, orden descendente z-a con ('-nombre')
+    tiendas = Tienda.objects.order_by('-views')[:3]
+    context_dict = {'zonas': zona_list, 'tiendas': tiendas}
+    return render(request, 'tiendas/index.html', context_dict)
+
+def mostrar_tiendas(request,zona_name_slug):
     try:
-        zona_aux = Zona.objects.get(nombre=zona_name_slug)
+        zona_aux = Zona.objects.get(slug=zona_name_slug)
         zona_aux.views += 1
         zona_aux.save()
         tiendas_list = Tienda.objects.filter(zona=zona_aux)
@@ -34,27 +35,26 @@ def mostrar_tiendas(request,zona_name_slug):
         return render(request, 'tiendas/mostrartiendas.html', tiendas_dict)
     except Zona.DoesNotExist:
         zona_aux = None
+        return render(request, 'tiendas/mostrartiendas.html')
 
-def zonas(request):
-
-    zonas_list = Zona.objects.all()
-    zonas_dict = {'zonas':zonas_list}
-    return render(request, 'tiendas/zonas.html', zonas_dict)
-
-
+@login_required
 def add_zona(request):
     # A HTTP POST?
     if request.method == 'POST':
-        form = ZonaForm(request.POST)
+        form = ZonaForm(data=request.POST)
 
         # Have we been provided with a valid form?
         if form.is_valid():
             # Save the new category to the database.
-            form.save(commit=True)
+            form_zona=form.save(commit="False")
+            if 'imagen' in request.FILES:
+                form_zona.imagen = request.FILES['imagen']
+
+            form_zona.save()
 
             # Now call the index() view.
             # The user will be shown the homepage.
-            return mostrar_tiendas(request)
+            return inicio(request)
 
         else:
             # The supplied form contained errors - just print them to the terminal.
@@ -67,21 +67,27 @@ def add_zona(request):
     # Render the form with error messages (if any).
     return render(request, 'tiendas/add_zona.html', {'form': form})
 
-
 def add_tienda(request, zona_name_slug):
 
     try:
-        zona = Zona.objects.get(nombre=zona_name_slug)
+        zona = Zona.objects.get(slug=zona_name_slug)
     except Zona.DoesNotExist:
         zona = None
 
     if request.method == 'POST':
-        form = TiendaForm(request.POST)
+        form = TiendaForm(data=request.POST)
         if form.is_valid():
             if zona:
-                tienda = form.save(commit=True)
+                tienda = form.save(commit=False)
+                tienda.zona=zona
+
+                if 'imagen' in request.FILES:
+                    print "se coge la imagen"
+                    tienda.imagen = request.FILES['imagen']
+
+                tienda.save()
                 # probably better to use a redirect here.
-                return mostrar_tiendas(request,zona_name_slug)
+                return inicio(request)
         else:
             print form.errors
     else:
@@ -187,13 +193,7 @@ def user_login(request):
     else:
         # No context variables to pass to the template system, hence the
         # blank dictionary object...
-        return render(request, 'tiendas/login.html', {})
-
-def some_view(request):
-    if not request.user.is_authenticated():
-        return HttpResponse("You are logged in.")
-    else:
-        return HttpResponse("You are not logged in.")
+        return render(request, 'tiendas/login.html')
 
 @login_required
 def restricted(request):
