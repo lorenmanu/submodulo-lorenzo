@@ -23,14 +23,4 @@ class RutasTests(APITestCase):
         self.assertEqual(response.content,'{"nombre":"Cervantes","codigo":"1234","descripcion":"Hola","foto":"http://localhost:8000/media/foto_producto/220px-Cervantes_Valladolid_lou.jpg"}')
         print("Question consultada XD1")
 
-    def test_detalle_varios_productos(self):
-        q1 = Producto(nombre='Armario' , codigo='1234',descripcion='Hola',foto='foto1')
-        q1.save()
-        q2 = Producto(nombre='Armario(2)' , codigo='1234(2)',descripcion='Hola(2)',foto='foto2')
-        q2.save()
-        response = self.client.get('/producto/productoslist/')
-        self.assertEqual(response.content,'[{"nombre":"Armario","codigo":"1234","descripcion":"Hola","foto":"http://localhost:8000/media/foto1"},{"nombre":"Armario(2)","codigo":"1234(2)","descripcion":"Hola(2)","foto":"http://localhost:8000/media/foto2"}]')
-        print("Varias personas consultadas en detalle correctamente2")
-
-
 
