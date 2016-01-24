@@ -122,7 +122,7 @@ También cabe destacar que hemos usado **snap-ci**. Snap-ci me permitirá sincro
 
 
 
-**Nota**: para abrir la aplicación en el navegador, tendremos que es escalar **dynos** de heroku, para ello ponemos en la terminal:
+**Nota**: para abrir la aplicación en el navegador, tendremos que es escalar el **dynos** de heroku, para ello ponemos en la terminal:
 
 
 ```
