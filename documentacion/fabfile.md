@@ -70,4 +70,4 @@ Con la opción **-p 80:80** estamos indicando que las peticiones que lleguen por
 
 
 ### Comprobación
-El enlace de mi app en ec2 de Amazon mediante automatización se puede ver [aquí](ec2-52-11-219-71.us-west-2.compute.amazonaws.com).
+El enlace de mi app en ec2 de Amazon mediante automatización se puede ver [aquí](http://ec2-52-11-219-71.us-west-2.compute.amazonaws.com).
