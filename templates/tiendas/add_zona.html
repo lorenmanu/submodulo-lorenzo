@@ -1,25 +1,27 @@
-{% extends "tiendas/base.html" %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>tiendas</title>
+    </head>
 
-{% load staticfiles %}
-{% block body_block %}
-        <h1>Add zona</h1>
+    <body>
+        <h1>Add a Category</h1>
 
-        <form role="form"  id="category_form" method="post" action="/tiendas/add_zona/" enctype="multipart/form-data">
+        <form id="category_form" method="post" action="/tiendas/add_zona/">
+
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
                 {{ hidden }}
-                {% endfor %}
+            {% endfor %}
 
-                {% for field in form.visible_fields %}
-                    {{ field.errors }}
-                    {{ field.help_text }}<br/>
-                    {{ field.name }}<br/>
-                    {{ field }}<br/>
-                {% endfor %}
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}
 
-            <br/>
-            <button class="btn btn-primary" type="submit" name="submit">Añadir zona</button>
+            <input type="submit" name="submit" value="Create Category" />
         </form>
+    </body>
 
-
- {% endblock %}
+</html>

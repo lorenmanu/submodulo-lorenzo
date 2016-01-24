@@ -1,17 +1,17 @@
-#Makefile lorenmanu segundo hito
+#Makefile FJGM segundo hito 
 #clean install test run doc
 
 clean:
 	- rm -rf *~*
 	- find . -name '*.pyc' -exec rm {} \;
 
-install:
+install: 
 	python setup.py install
-
-test:
+	
+test: 
 	python manage.py test
-
+	
 run:
-	python manage.py runserver 0.0.0.0:80
+	python manage.py runserver
 doc:
-	epydoc --html MiTienda/*.py
+	epydoc --html MiTienda/*.py 

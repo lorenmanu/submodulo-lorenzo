@@ -1,21 +1,27 @@
-{% extends "tiendas/base.html" %}
-{% block body_block %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>tiendas</title>
+    </head>
 
-        <form role="form"  id="tienda_form" method="post" action="/tiendas/add_tienda/{{zona.slug}}/" enctype="multipart/form-data">
+    <body>
+        <h1>Add a tienda</h1>
+
+        <form id="tienda_form" method="post" action="/tiendas/add_tienda/{{zona.nombre}}/">
+
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
                 {{ hidden }}
-                {% endfor %}
+            {% endfor %}
 
-                {% for field in form.visible_fields %}
-                    {{ field.errors }}
-                    {{ field.help_text }}<br/>
-                    {{ field.name }}<br/>
-                    {{ field }}<br/>
-                {% endfor %}
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}
 
-            <br/>
-            <button class="btn btn-primary" type="submit" name="submit">Añadir tienda</button>
+            <input type="submit" name="submit" value="Create Tienda" />
         </form>
-{% endblock %}
+    </body>
 
+</html>

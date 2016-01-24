@@ -34,7 +34,8 @@ SITE_ID = 1
 
 APPEND_SLASH=False
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'http://localhost:8000/media/'
+
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -116,8 +117,14 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'apps.inicio',
     'apps.productos',
+    'apps.tiendas',
 )
 
+
+from django.core.urlresolvers import reverse_lazy
+LOGIN_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('login')
+LOGOUT_URL = reverse_lazy('logout')
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
