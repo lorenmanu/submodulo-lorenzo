@@ -20,7 +20,7 @@ web: gunicorn MiTienda.wsgi --log-file -
 
 ```
 
-- Realizar login:
+- Realizar login(se pedirá credenciales):
 
 ```
 
@@ -30,18 +30,19 @@ heroku login
 
 
 - Crear la aplicación:
+
 ```
 
 heroku create
 
 ```
 
-- Subir los cambios que se realicen a heroku: 
+- Subir los cambios que se realicen a heroku:
 
 ```
 
 git add .
-git commit -m "subida"
+git commit -m "subir aplicación"
 git push heroku master
 
 ```
@@ -81,6 +82,7 @@ STATICFILES_DIRS = (
 ```
 
 - En **wsgi.py** poner lo siguiente:
+
 ```
 
 import os
@@ -102,10 +104,10 @@ Aclaraciones sobre la modificación del archivo **settings.py**:
 
 - En DATABASE_URL se indica la url de la base de datos postgreSQL de Heroku( que deberemos haber creado antes), hay que darle a show para verlo.
 
-- Para actualizar y/o sincronizar la base de datos se debe poner en la terminal lo siguiente: 
+- Para actualizar y/o sincronizar la base de datos se debe poner en la terminal lo siguiente:
  - **heroku run python manage.py makemigrations**
  - **heroku run python manage.py migrate**
- - **heroku run python manage.py createsuperuser**. 
+ - **heroku run python manage.py createsuperuser**.
 
 También cabe destacar que hemos usado **snap-ci**. Snap-ci me permitirá sincronizar a nuestro repositorio, y de esta forma se desglosará un pipeline con los distintos estados por los que se pasa hasta el despliegue:
 
@@ -113,3 +115,19 @@ También cabe destacar que hemos usado **snap-ci**. Snap-ci me permitirá sincro
 - Ejecución de los tests.
 - Despliegue.
 
+![img11](https://www.dropbox.com/s/dv7x5s2ujo8miwv/img11.png?dl=1)
+
+![img12](https://www.dropbox.com/s/wk9p9es5ucn3dj5/img12.png?dl=1)
+
+
+
+
+**Nota**: para abrir la aplicación en el navegador, tendremos que es escalar **dynos** de heroku, para ello ponemos en la terminal:
+
+
+```
+heroku ps:scale web=1 \\escalamos dynos
+
+heroku open \\ abrimos aplicación
+
+```

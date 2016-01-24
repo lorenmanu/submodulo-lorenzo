@@ -32,21 +32,21 @@ clean:
 	- rm -rf *~*
 	- find . -name '*.pyc' -exec rm {} \;
 
-install: 
+install:
 	python setup.py install
-	
-test: 
+
+test:
 	python manage.py test
-	
+
 run:
 	python manage.py runserver
 doc:
-	epydoc --html MiTienda/*.py 
+	epydoc --html MiTienda/*.py
 
 
 ```
 
-###Instalación local de la aplicación
+### Instalación local de la aplicación
 
 Para ejecutar la aplicación de manera local, tendremos que introducir los siguientes comandos en la terminal:
 
@@ -96,7 +96,7 @@ Como se puede ver hago uso del archivo **manage.py**, el cual me permitirá real
 
 ###Integración Continua
 
-Aquí he usado dos sistemas de integración continua, de esta manera cada vez que realice un cambio en la aplicación se comprobará su correcto funcionamento ejecutando los tests. Los sistemas usados son:
+Aquí he usado dos sistemas de integración continua, de esta manera cada vez que realice un cambio en la aplicación se comprobará su correcto funcionamiento ejecutando los tests. Los sistemas usados son:
 
 - **Travis**: estará sincronizado con nuestro repositorio, cada vez que se realice un cambio en la aplicación comprobará el correcto funcionamiento de esta.
 
@@ -115,33 +115,38 @@ python manage.py tests
 
 ```
 
-###Despliegue en un Paas Heroku
+### Despliegue en un Paas Heroku
 
 Aquí he decidido usar Heroku, el cual se caracteriza por su fácil sincronización con github y por su caracter gratuito.
 
 Podemos ver la aplicación desplegada en el siguiente [enlace](https://myclient.herokuapp.com/).
 
-He proporcionado un archivo para el despliegue en heroku, puede verse [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/heroku_deploy.sh).
+He proporcionado un archivo(script) para el despliegue en heroku, puede verse [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/heroku_deploy.sh).
 
 Para mas información de como la he desplegado en heroku, visita el [enlace](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/heroku.md).
 
-###Docker Hub
+### Docker Hub
 Docker Hub es un servicio en la nube que nos permite construir y enviar aplicaciones o servicios mediante contenedores. Y además nos permitirá también su automatización.
 
 Para su automatización será necesario un archivo Dockerfile, el mio puede verse [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/Dockerfile).
 
 Los pasos de como usar **Docker Hub** se detallan en el siguiente [archivo](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/docker.md).
 
+Se ofrece un archivo(script) para laa creación del docker en el ordenador donde se ejecute, puede verse [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/docker_install_and_run.sh).
+
+**Nota**: si ejecutamos archivo(script), no olvidar dirigirse al directorio **submodulo-lorenzo** e introducir en la terminal ** make run ** para ejecutar la aplicación. Basicamente lo que hace make run es:
+
+```
+sudo python manage.py runserver 0.0.0.0:80
+``
+
 Enlace al repositorio de la [Automated Build](https://hub.docker.com/r/lorenmanu/submodulo-lorenzo/).
 
-###Despliegue remoto: Fabric
+### Despliegue remoto: Fabric
 Para realizar el despliegue remoto he usado [Fabric](http://www.fabfile.org/), el cual es una biblioteca de python para realizar tareas de administración por ssh. Con él he creado un entorno de pruebas en ec2, que es un servicio web que proporciona capacidad informática con tamaño modificable en la nube, para más información se puede consultar el siguiente [enlace](https://aws.amazon.com/es/ec2/).
 
 Para la creación del entorno Docker en mi máquina virtual ec2 he usado un archivo [fabfile](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/fabfile.py). Lo que hace este archivo se puede ver [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/fabfile.md).
 
 Para crear una instancia en **ec2**, he seguido los pasos detallados en el siguiente [archivo](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/ec2.md).
 
-El enlace mi instacia en EC2 donde se puede ver la aplicación es [este](http://ec2-52-11-219-71.us-west-2.compute.amazonaws.com).
-
-
-
+El enlace mi instancia en EC2 donde se puede ver la aplicación es [este](http://ec2-52-11-219-71.us-west-2.compute.amazonaws.com).
