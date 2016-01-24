@@ -9,7 +9,7 @@ sudo pip install fabric
 
 ```
 
-- ** Segundo **: Localizar nuestro archivo con la clave privada proporcionada por Amazon. Este archivo tendrá extensión **.pem** y Amazon nos permitirá su descarga cuando [creemos la instancia](**documentacion/ec2.md**). Copiaremos la ruta a dicho archivo y lo añadiremos a la conexíon **ssh** con el siguiente comando:
+- ** Segundo **: Localizar nuestro archivo con la clave privada proporcionada por Amazon. Este archivo tendrá extensión **.pem** y Amazon nos permitirá su descarga cuando [creemos la instancia](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/documentacion/ec2.md). Copiaremos la ruta a dicho archivo y lo añadiremos a la conexíon **ssh** con el siguiente comando:
 
 ```
 ssh-add "ruta archivo"
