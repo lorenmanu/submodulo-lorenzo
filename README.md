@@ -138,7 +138,7 @@ Se ofrece un archivo(script) para laa creación del docker en el ordenador donde
 
 ```
 sudo python manage.py runserver 0.0.0.0:80
-``
+```
 
 Enlace al repositorio de la [Automated Build](https://hub.docker.com/r/lorenmanu/submodulo-lorenzo/).
 
