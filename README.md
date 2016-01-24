@@ -134,7 +134,7 @@ Los pasos de como usar **Docker Hub** se detallan en el siguiente [archivo](http
 
 Se ofrece un archivo(script) para laa creación del docker en el ordenador donde se ejecute, puede verse [aquí](https://github.com/lorenmanu/submodulo-lorenzo/blob/master/scripts/docker_install_and_run.sh).
 
-**Nota**: si ejecutamos archivo(script), no olvidar dirigirse al directorio **submodulo-lorenzo** e introducir en la terminal ** make run ** para ejecutar la aplicación. Basicamente lo que hace make run es:
+**Nota**: si ejecutamos archivo(script), no olvidar dirigirse al directorio **submodulo-lorenzo** e introducir en la terminal **make run** para ejecutar la aplicación. Basicamente lo que hace make run es:
 
 ```
 sudo python manage.py runserver 0.0.0.0:80
